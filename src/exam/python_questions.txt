@@ -1,0 +1,22 @@
+Python is an object-oriented programming language|V|null|VF
+In Python, you can use semicolons to terminate statements|V|null|VF
+Python is a compiled language|F|null|VF
+In Python, you can use arrays to store multiple values|F|null|VF
+Python supports multiple inheritance, allowing a subclass to inherit from multiple superclasses|V|null|VF
+In Python, the range() function returns a list of integers|F|null|VF
+The is keyword and the == operator are identical in Python|F|null|VF
+Python is a dynamically-typed language|V|null|VF
+Tuples in Python are mutable|F|null|VF
+The try block in a try-except statement is optional|F|null|VF
+
+Which of the following options shows how to print "Hello, world" in Python?|print("Hello, world"), system.out.println("Hello, world")|echo("Hello, world"), Console.WriteLine("Hello, world")|S2
+What is the operator for exponentiation in Python?|^, //|*, %|S2
+Which of the following options shows how to remove an element from a list in Python?|remove(3), pop(3)|delete(3), splice(3)|S2
+What is an exception in Python and how is it handled?|An exception is an error that occurs during program execution and is handled using try-except blocks|An exception is a type of variable in Python, it is handled using the throw() function|S2
+What is a list in Python and how is it declared?|A list is an ordered, mutable collection of elements. It is declared using square brackets []|A list is a type of function in Python, it is declared using braces {}|S2
+How can multiple lines be created and printed to the console in Python?|You can use triple quotes ( """) to create multiple lines and the print() function to print them, You can use the escape character ('\n') to create multiple lines and the print() function to print them|You cannot create or print multiple lines in the console in Python|S2
+How can user input be read in Python?|You can use the input() function, which returns a string, You can use the int() function, which returns an integer representation of the input|You can use the read() function, which returns an integer|S2
+What is the correct way to initiate a virtualenv in Python?|You can use the command "virtualenv envname" to create a new virtual environment, followed by "source envname/bin/activate" to initiate it|There is no correct way to initiate a virtualenv, it can be done from any directory|S2
+Which of the following are correct ways to declare a list in Python? Select all that apply|Using square brackets: [], Using list() function: list()|Not any |S2
+What are the ways to handle file I/O operations in Python? Select all that apply|Using built-in functions such as open() read() write() and close(), Using the with statement to automatically close the file after the operation|Something|S2  
+
