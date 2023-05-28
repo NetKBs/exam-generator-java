@@ -147,7 +147,7 @@ public class Ventana extends javax.swing.JFrame {
         user.Person person = new user.Person(name, lastname);
         
         try {
-        FileWriter writer = new FileWriter("/home/manuelrg/Documentos/datos.txt",true);
+        FileWriter writer = new FileWriter("datos.txt",true);
         writer.write(person.getName() + " " + person.getLastname()+"\n");
         writer.close();
     } catch (IOException e) {
