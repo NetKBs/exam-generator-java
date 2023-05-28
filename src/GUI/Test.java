@@ -64,7 +64,7 @@ public class Test extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void actualizarTexto(ExamModel exam) {
-        //System.out.println(exam.getQuestions().size());
+        
         for (Question q : exam.getQuestions()) {
            
            DataPanel.add(new JLabel(q.getQuestion()));

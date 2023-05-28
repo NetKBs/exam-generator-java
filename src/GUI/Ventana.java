@@ -6,10 +6,10 @@ package GUI;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import  user.Person;
+import java.io.File;
 
 public class Ventana extends javax.swing.JFrame {
-   
+
     public Ventana() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -142,29 +142,32 @@ public class Ventana extends javax.swing.JFrame {
         Ventana2 a = new Ventana2();
         String name = txtnombre.getText();
         String lastname = txtapellido.getText();
-        
-        
+
+        String slice = File.separator;
+        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos.txt";
+        System.out.println(file_path);
+
         user.Person person = new user.Person(name, lastname);
-        
+
         try {
-        FileWriter writer = new FileWriter("datos.txt",true);
-        writer.write(person.getName() + " " + person.getLastname()+"\n");
-        writer.close();
-    } catch (IOException e) {
-        System.out.println("Ocurrió un error al guardar el archivo.");
-        e.printStackTrace();
-    }     
-        
-     a.setVisible(true);
-     this.setVisible(false);       
-        
+            FileWriter writer = new FileWriter(file_path, true);
+            writer.write(person.getName() + " |" + person.getLastname() + "\n");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al guardar el archivo.");
+            e.printStackTrace();
+        }
+
+        a.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_btnenviarActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Ventana().setVisible(true);
