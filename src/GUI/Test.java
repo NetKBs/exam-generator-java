@@ -63,24 +63,31 @@ public class Test extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void actualizarTexto(ExamModel exam) {
-        
-        for (Question q : exam.getQuestions()) {
-           
-           DataPanel.add(new JLabel(q.getQuestion()));
-           DataPanel.add(Box.createVerticalStrut(10)); // separation
-           
-           if ("VF".equals(q.getType())) {
-               DataPanel.add(new JCheckBox("V"));
-               DataPanel.add(new JCheckBox("F"));
-               DataPanel.add(Box.createVerticalStrut(20));
-           }
-           
+   private void actualizarTexto(ExamModel exam) {
+    //System.out.println(exam.getQuestions().size());
+    for (Question q : exam.getQuestions()) {
+
+        DataPanel.add(new JLabel(q.getQuestion()));
+        DataPanel.add(Box.createVerticalStrut(10)); // separation
+
+        if ("VF".equals(q.getType())) {
+            JRadioButton vRadioButton = new JRadioButton("Verdadero");    // Definimos el primer Radio Button
+            vRadioButton.setActionCommand("Verdadero");  // Asignamos un Datos de Acción
+
+            JRadioButton fRadioButton = new JRadioButton("Falso");    // Definimos el segundo Radio Button
+            fRadioButton.setActionCommand("Falso");    // Asignamos un Datos de Acción
+
+            ButtonGroup group = new ButtonGroup();  // Instanciamos el ButtonGroup
+            group.add(vRadioButton);    // Agregamos el primer Radio Button al grupo
+            group.add(fRadioButton);    // Agregamos el segundo Radio Button al grupo
+
+            // Agregamos los Radio Button al DataPanel
+            DataPanel.add(vRadioButton);
+            DataPanel.add(fRadioButton);
+            DataPanel.add(Box.createVerticalStrut(20));
         }
-        
-    }   
-    
-   
+    }
+}
   
     /**
      * @param args the command line arguments
