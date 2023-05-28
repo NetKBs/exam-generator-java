@@ -20,3 +20,6 @@ What is the correct way to initiate a virtualenv in Python?|You can use the comm
 Which of the following are correct ways to declare a list in Python? Select all that apply|Using square brackets: [], Using list() function: list()|Not any |S2
 What are the ways to handle file I/O operations in Python? Select all that apply|Using built-in functions such as open() read() write() and close(), Using the with statement to automatically close the file after the operation|Something|S2  
 
+
+
+
