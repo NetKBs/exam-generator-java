@@ -97,7 +97,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setText("Name:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 183, 260, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 260, -1));
 
         txtnombre.setForeground(new java.awt.Color(204, 204, 204));
         txtnombre.setText("Ingrese su nombre");
@@ -107,12 +107,12 @@ public class Ventana extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("LastName:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 270, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 270, -1));
 
         txtapellido.setForeground(new java.awt.Color(204, 204, 204));
         txtapellido.setText("Ingrese su Apellido");
         txtapellido.setBorder(null);
-        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 206, -1, 30));
+        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, 30));
 
         btnenviar.setText("Enviar");
         btnenviar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,10 +147,11 @@ public class Ventana extends javax.swing.JFrame {
         user.Person person = new user.Person(name, lastname);
         
         try {
-        FileWriter writer = new FileWriter("/home/manuelrg/Documentos/datos.txt");
-        writer.write(person.getName() + " " + person.getLastname());
+        FileWriter writer = new FileWriter("/home/manuelrg/Documentos/datos.txt",true);
+        writer.write(person.getName() + " " + person.getLastname()+"\n");
         writer.close();
     } catch (IOException e) {
+        System.out.println("Ocurrió un error al guardar el archivo.");
         e.printStackTrace();
     }     
         
