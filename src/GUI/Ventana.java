@@ -4,15 +4,12 @@
  */
 package GUI;
 
-/**
- *
- * @author Manue
- */
-public class Ventana extends javax.swing.JFrame {
+import java.io.FileWriter;
+import java.io.IOException;
+import  user.Person;
 
-    /**
-     * Creates new form Ventana
-     */
+public class Ventana extends javax.swing.JFrame {
+   
     public Ventana() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,19 +27,15 @@ public class Ventana extends javax.swing.JFrame {
         panel1 = new java.awt.Panel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        panelRound1 = new GUI.PanelRound();
-        panelRound2 = new GUI.PanelRound();
-        panelRound3 = new GUI.PanelRound();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
-        panelRound4 = new GUI.PanelRound();
-        jLabel3 = new javax.swing.JLabel();
+        txtapellido = new javax.swing.JTextField();
+        btnenviar = new javax.swing.JButton();
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -70,63 +63,6 @@ public class Ventana extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelRound1.setBackground(new java.awt.Color(153, 0, 255));
-        panelRound1.setRoundBottomLeft(100);
-        panelRound1.setRoundBottomRight(100);
-        panelRound1.setRoundTopLeft(100);
-        panelRound1.setRoundTopRight(100);
-
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 140, 150));
-
-        panelRound2.setBackground(new java.awt.Color(153, 0, 255));
-        panelRound2.setRoundBottomLeft(100);
-        panelRound2.setRoundBottomRight(100);
-        panelRound2.setRoundTopLeft(100);
-        panelRound2.setRoundTopRight(100);
-
-        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
-        panelRound2.setLayout(panelRound2Layout);
-        panelRound2Layout.setHorizontalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-        panelRound2Layout.setVerticalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 110, 80, -1));
-
-        panelRound3.setBackground(new java.awt.Color(153, 0, 255));
-        panelRound3.setRoundBottomLeft(100);
-        panelRound3.setRoundBottomRight(100);
-        panelRound3.setRoundTopLeft(100);
-        panelRound3.setRoundTopRight(100);
-
-        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
-        panelRound3.setLayout(panelRound3Layout);
-        panelRound3Layout.setHorizontalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-        panelRound3Layout.setVerticalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, -20, 110, 100));
 
         jPanel4.setBackground(new java.awt.Color(153, 0, 255));
 
@@ -160,53 +96,31 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setText("Name:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 183, 260, 10));
 
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Ingrese su nombre");
-        jTextField1.setBorder(null);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, 30));
+        txtnombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtnombre.setText("Ingrese su nombre");
+        txtnombre.setBorder(null);
+        jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, 30));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("LastName:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 270, -1));
 
-        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("Ingrese su Apellido");
-        jTextField2.setBorder(null);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 206, -1, 30));
+        txtapellido.setForeground(new java.awt.Color(204, 204, 204));
+        txtapellido.setText("Ingrese su Apellido");
+        txtapellido.setBorder(null);
+        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 206, -1, 30));
 
-        panelRound4.setBackground(new java.awt.Color(153, 0, 255));
-        panelRound4.setRoundBottomLeft(5);
-        panelRound4.setRoundBottomRight(5);
-        panelRound4.setRoundTopLeft(5);
-        panelRound4.setRoundTopRight(5);
-
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Start");
-
-        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
-        panelRound4.setLayout(panelRound4Layout);
-        panelRound4Layout.setHorizontalGroup(
-            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel3)
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        panelRound4Layout.setVerticalGroup(
-            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, -1, 30));
+        btnenviar.setText("Enviar");
+        btnenviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnenviarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnenviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,6 +138,27 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnenviarActionPerformed
+        Ventana2 a = new Ventana2();
+        String name = txtnombre.getText();
+        String lastname = txtapellido.getText();
+        
+        
+        user.Person person = new user.Person(name, lastname);
+        
+        try {
+        FileWriter writer = new FileWriter("/home/manuelrg/Documentos/datos.txt");
+        writer.write(person.getName() + " " + person.getLastname());
+        writer.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }     
+        
+     a.setVisible(true);
+     this.setVisible(false);       
+        
+    }//GEN-LAST:event_btnenviarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,21 +172,17 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnenviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private java.awt.Panel panel1;
-    private GUI.PanelRound panelRound1;
-    private GUI.PanelRound panelRound2;
-    private GUI.PanelRound panelRound3;
-    private GUI.PanelRound panelRound4;
+    private javax.swing.JTextField txtapellido;
+    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }
