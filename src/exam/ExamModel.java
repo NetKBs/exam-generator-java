@@ -101,14 +101,14 @@ public final class ExamModel {
 
         // Shuffle questions
         Collections.shuffle(vf);
-        //Collections.shuffle(s1);
+        Collections.shuffle(s1);
         Collections.shuffle(s2);
         //Collections.shuffle(s3);
         //Collections.shuffle(code);
 
         // Add the first 5 elements of each question type in order
         this.questions.addAll(vf.subList(0, 5));
-        //questions.addAll(s1.subList(0, 5));
+        this.questions.addAll(s1.subList(0, 5));
         this.questions.addAll(s2.subList(0, 5));
         //questions.addAll(s3.subList(0, 5));
         //questions.addAll(code.subList(0, 5));

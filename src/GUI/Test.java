@@ -85,6 +85,19 @@ public class Test extends javax.swing.JFrame {
             DataPanel.add(vRadioButton);
             DataPanel.add(fRadioButton);
             DataPanel.add(Box.createVerticalStrut(20));
+            
+        } else if ("S1".equals(q.getType())) {
+            // Correct option
+            for (String correct_q: q.getAnswers()) {
+                DataPanel.add(new JRadioButton(correct_q));
+            }
+     
+            // Another options
+            for (String another_q: q.getWrongAnswers()) {
+                DataPanel.add(new JRadioButton(another_q));
+            }
+            
+            DataPanel.add(Box.createVerticalStrut(20));
         }
     }
 }
