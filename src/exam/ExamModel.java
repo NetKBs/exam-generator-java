@@ -68,10 +68,10 @@ public final class ExamModel {
                 
                 String[] line_elements = line.split("\\|"); // split the line into an array of elements using the separator |
 
-                String question = line_elements[0];
-                String[] answer = line_elements[1].split(",");
-                String[] another_answers = line_elements[2].equals("null") ? null : line_elements[2].split(",");
-                String type = line_elements[3];
+                String question = line_elements[0].trim();
+                String[] answer = line_elements[1].trim().split(",");
+                String[] another_answers = line_elements[2].trim().equals("null") ? null : line_elements[2].trim().split(",");
+                String type = line_elements[3].trim();
 
                 // save it
                 switch (type) {
