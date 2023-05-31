@@ -1,0 +1,52 @@
+En C, se obliga a inicializar todas las variables al declararlas. | V | F | VF
+Los arreglos en C siempre empiezan en la posición 0. | V | F | VF
+La sentencia "return 0;" indica que el programa finalizó sin errores en C. | V | F | VF
+En C, el especificador de tipo "short" indica un entero con menor rango que "int". | V | F | VF
+Los operadores lógicos en C son & y |. | V | F | VF
+La función printf() en C es utilizada para imprimir mensajes en la consola. | V | F | VF
+C es un lenguaje de programación orientado a objetos. | V | F | VF
+En C, la estructura de iteración "do-while" se ejecuta al menos una vez, independientemente de la condición. | V | F | VF
+La biblioteca estándar de C permite manejar memoria dinámicamente con funciones como malloc() y free(). | V | F | VF
+Los argumentos de una función en C siempre son pasados por referencia. | F | V | VF
+
+¿Cuál es la palabra clave que se utiliza para declarar una función en C? | void | función ~ return | S1
+¿Cuál es el operador utilizado para asignar un valor a una variable en C?| = | 	:= ~ <- | S1
+¿Cuál es la función utilizada para imprimir texto en la pantalla en C?| printf |scanf ~ gets| S1
+¿Cuál es el tipo de dato utilizado para almacenar caracteres en C?| char |int ~ float| S1
+¿Cuál es el resultado de la siguiente operación en C: 5 / 2? |2 |2.5 ~ 3|S1
+¿Cuál es la estructura de control utilizada para repetir un bloque de código varias veces en C?|for|if~ switch|S1
+¿Cuál es el operador utilizado para acceder a un miembro de una estructura en C?|.|-> ~ ;|S1
+¿Cuál es el operador utilizado para comparar dos valores en C?|==|= ~ :=|S1
+¿Cuál es el resultado de la siguiente operación en C: 2 + 3 * 4?	|14	|20 ~ 2.5|S1
+¿Cuál es el tipo de dato utilizado para almacenar números enteros en C?	|int|char ~ float|S1
+
+¿Cómo se calcula la longitud de una cadena en C?| strlen() ~ sizeof()|strcat() ~ strcpy() ~ strncpy()|S2
+¿Qué función se utiliza para convertir una cadena a un número entero en C?|atoi() ~ strtol()|itoa() ~ atol() ~ strtof()|S2
+¿Cuál es el valor del carácter nulo en C?|0  ~'\0'| -1 ~ ' '| S2
+¿Qué función se utiliza para calcular el valor absoluto de un número en C?|abs() ~ labs()|round() ~ ceil()~ floor()|S2
+¿Qué función se utiliza para leer un entero desde el teclado en C?|scanf("%d", &numero) ~ getchar()|gets() ~ printf("%d", numero) ~ scanf("%s", cadena)|S2
+¿Qué función se utiliza para encontrar la posición de una subcadena dentro de una cadena en C?|strstr() ~ strpbrk()|strchr() ~ strcat()~ strtok()|S2
+¿Cómo se declara una variable constante en C?|const ~ #define| static ~ volatile y register|S2
+¿Cuál de las siguientes opciones es la forma correcta de leer un carácter por teclado en C? | scanf("%c", &caracter) ~ getchar(); | read(caracter)~ input("%c", caracter)|S2
+¿Cuál es la palabra clave utilizada para declarar una función en C?|void ~ int|string ~ double|S2
+¿Cuál es el operador de igualdad en C?| == ~ !=| = ~ <| S2
+
+¿Cual es la forma correcta de declarar una variable en C?|`tipo_de_dato variable;` ~ `tipo_de_dato variable = valor;`~ `tipo_de_dato variable1, variable2, variable3;`|`var tipo_de_dato variable;`~`variable tipo_de_dato;`|S3
+¿Cuál es la función que se utiliza para imprimir en pantalla en C?|`printf()`~ `puts()`~ `fputs()`| `print()`~ `put()`|S3
+¿Cómo se define una constante en C?| `#define NOMBRE_VALOR valor` ~  `const tipo_dato nombre = valor;` ~ `enum nombre { valor }`|`val constante = valor;` ~ `define nombre valor;`|S3
+¿Cómo se declara una función en C?|`tipo_de_dato nombre_funcion(parametros);`~ `tipo_de_dato nombre_funcion();`~ `void nombre_funcion(parametros);`|`funcion();`~ `nombre_funcion(parametros, tipo_de_dato);`|S3
+¿Cuál es el operador utilizado en C para obtener la dirección de una variable?| `&` ~ `*` ~ `->`| `+` ~ `-`|S3
+¿Cómo se define una estructura en C?| `struct nombre { tipo_de_dato variable1, variable2, variable3; };`~`typedef struct { tipo_de_dato variable1, variable2, variable3; } nombre;` ~ `typedef struct nombre { tipo_de_dato variable1, variable2, variable3; } nombre;`|`int nombre { tipo_de_dato variable1, variable2, variable3; };`~ `type nombre { tipo_de_dato variable1, variable2, variable3; };`|S3
+¿Cómo se lee un carácter desde la entrada estándar en C?| `getchar()` ~ `scanf("%c", &variable);` ~ `fgets(variable);`| `read()` ~`gets(variable);`|S3
+¿Qué tipo de dato se utiliza en C para almacenar números reales con decimales?| `float` ~ `double`~ `long double`| `decimal`~ `real`|S3
+¿Qué significa el operador "&" en C?| Es el operador de dirección que devuelve la dirección de memoria de una variable.~ Se utiliza para declarar una variable como puntero. ~ Se puede usar para calcular la dirección de memoria de un elemento en un arreglo.| Es el operador de comparación de igualdad en C. ~ Se usa para calcular el resultado de un exponente.|S3
+¿Cómo se declara un arreglo en C? |`tipo_de_dato nombre_arreglo[tamaño];`~ `tipo_de_dato nombre_arreglo[] = {valor1, valor2, valor3};` ~ `tipo_de_dato nombre_arreglo[tamaño][tamaño];`| `arreglo_nombre = {valor1, valor2, valor3};`~ `tipo_de_dato nombre_arreglo = {valor1, valor2, valor3};|S3
+
+¿Cómo declaras un puntero a un entero en C llamado "p"? | int *p; | null | CD 
+¿Cómo se declara una estructura llamada "persona" en C con dos campos: "nombre" y "edad"? | struct persona { char nombre[20]; int edad; }; | null | CD 
+¿Cómo asignar un valor de 5 al tercer elemento de un arreglo llamado "numeros" en C? | numeros[2] = 5; | null | CD 
+Escribe una función en C llamada "suma" que sume dos números y los devuelva como resultado. | int suma(int a, int b) { return a + b; } | null | CD ¿Cómo se declara una variable global en C llamada "contador" de tipo entero? | int contador; (fuera de cualquier función) | null | CD 
+¿Cómo se declara un arreglo de caracteres llamado "palabra" en C y se le asigna el valor "hola"? | char palabra[5] = "hola"; | null | CD 
+¿Cómo se define una constante llamada "PI" en C con un valor de 3.14159? | #define PI 3.14159 | null | CD ¿Cómo se utiliza un bucle "for" en C para imprimir los números del 1 al 10? | for(int i=1; i<=10; i++) { printf("%d ", i); } | null | CD 
+¿Cómo se utiliza la función "scanf" en C para leer un número entero desde la entrada estándar y asignarlo a una variable llamada "edad"? | scanf("%d", &edad); | null | CD 
+¿Cómo se declara una variable de tipo float llamada "pi" en C y se le asigna el valor 3.14159? | float pi = 3.14159; | null | CD
