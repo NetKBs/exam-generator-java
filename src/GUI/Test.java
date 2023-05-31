@@ -8,13 +8,16 @@ import javax.swing.*;
 import java.awt.*;
 import exam.ExamModel;
 import exam.Question;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Net
  */
-public class Test extends javax.swing.JFrame {
-
+public class Test extends javax.swing.JFrame implements ActionListener {
+  JButton guardarRespuestasButton;
+    
     /**
      * Creates new form Test
      */
@@ -24,7 +27,30 @@ public class Test extends javax.swing.JFrame {
         DataPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         ExamModel exam = new ExamModel("python");
         actualizarTexto(exam);
+        this.setLocationRelativeTo(null);
+        // Crear un objeto de la clase JButton y agregarlo al final de DataPanel
+     JButton guardarRespuestasButton = new JButton("Guardar respuestas");
+     guardarRespuestasButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+     DataPanel.add(guardarRespuestasButton);
+        
     }
+   
+
+   
+    
+ 
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == guardarRespuestasButton) {
+            JOptionPane.showMessageDialog(this, "Respuestas guardadas exitosamente");
+        }
+    }
+
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -140,6 +166,10 @@ public class Test extends javax.swing.JFrame {
         }
     }
 
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
