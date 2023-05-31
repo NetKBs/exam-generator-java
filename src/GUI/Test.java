@@ -22,18 +22,23 @@ public class Test extends javax.swing.JFrame implements ActionListener {
      * Creates new form Test
      */
     public Test() {
-        initComponents();
-        DataPanel.setAlignmentY(Component.TOP_ALIGNMENT);
-        DataPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        ExamModel exam = new ExamModel("python");
-        actualizarTexto(exam);
-        this.setLocationRelativeTo(null);
-        // Crear un objeto de la clase JButton y agregarlo al final de DataPanel
-     JButton guardarRespuestasButton = new JButton("Guardar respuestas");
-     guardarRespuestasButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-     DataPanel.add(guardarRespuestasButton);
+    initComponents();
+    DataPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+    DataPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+    ExamModel exam = new ExamModel("python");
+    actualizarTexto(exam);
+    this.setLocationRelativeTo(null);
+
+    // Crear un objeto de la clase JButton y agregarlo al final de DataPanel
+    guardarRespuestasButton = new JButton("Guardar respuestas");
+    guardarRespuestasButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+    guardarRespuestasButton.addActionListener(this);
+    DataPanel.add(guardarRespuestasButton);
+
+    
+}
         
-    }
+    
    
 
    
@@ -42,6 +47,15 @@ public class Test extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == guardarRespuestasButton) {
             JOptionPane.showMessageDialog(this, "Respuestas guardadas exitosamente");
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
 
