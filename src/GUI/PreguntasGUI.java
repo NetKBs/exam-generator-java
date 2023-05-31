@@ -91,7 +91,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                 Container container = radioSeleccionado.getParent();
                 JPanel panelRadioButtons = null;
                 // Buscamos hasta encontrar el panel padre que se instancia JPanel
-                while (container != null) { 
+                while (container != null) {
                     if (container instanceof JPanel) {
                         panelRadioButtons = (JPanel) container;
                         break;
@@ -109,10 +109,10 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                                 c.setEnabled(false);
                             }
                         }
-                        
+
                     } else if ("S2".equals(pregunta.getType()) && radioSeleccionados == 2) {
                         for (Component c : panelRadioButtons.getComponents()) {
-                            
+
                             if (c instanceof JRadioButton && c != radioSeleccionado) {
                                 JRadioButton radioButton = (JRadioButton) c; //Convert to JRadioButton to access isSelected() method
                                 if (!radioButton.isSelected()) { //Check if the radio button is not selected
@@ -120,10 +120,10 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                                 }
                             }
                         }
-                        
+
                     } else if ("S3".equals(pregunta.getType()) && radioSeleccionados == 3) {
                         for (Component c : panelRadioButtons.getComponents()) {
-                            
+
                             if (c instanceof JRadioButton && c != radioSeleccionado) {
                                 JRadioButton radioButton = (JRadioButton) c; //Convert to JRadioButton to access isSelected() method
                                 if (!radioButton.isSelected()) { //Check if the radio button is not selected
@@ -159,30 +159,76 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     }
 
     // Manejamos el envio de preguntas y la continuación con la siguiente
-    @Override
+    
+     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        /*
         // Obtiene la respuesta seleccionada por el usuario
         JPanel panelPreguntaActual = (JPanel) panelPrincipal.getComponent(preguntaActual);
-        JRadioButton radioSeleccionado = null;
+        ArrayList<JRadioButton> radioSeleccionado = new ArrayList<>();
 
         // Busca el radio button seleccionado en el panel actual
         ButtonGroup grupoOpciones = new ButtonGroup();
         for (int i = 0; i < panelPreguntaActual.getComponentCount(); i++) {
             if (panelPreguntaActual.getComponent(i) instanceof JPanel) {
                 JPanel panelRespuestas = (JPanel) panelPreguntaActual.getComponent(i);
+                
                 for (int j = 0; j < panelRespuestas.getComponentCount(); j++) {
                     JRadioButton radio = (JRadioButton) panelRespuestas.getComponent(j);
                     grupoOpciones.add(radio);
                     if (radio.isSelected()) {
-                        radioSeleccionado = radio;
-                        break;
+                        radioSeleccionado.add(radio);
+                        
+                    }
+                }
+            }
+        }*/
+        
+        // Obtiene la respuesta seleccionada por el usuario
+        JPanel panelPreguntaActual = (JPanel) panelPrincipal.getComponent(preguntaActual);
+        ArrayList<JRadioButton> radioSeleccionado = new ArrayList<>();
+
+        // Busca el radio button seleccionado en el panel actual
+        for (Component componente : panelPreguntaActual.getComponents()) {
+            if (componente instanceof JPanel) {
+                JPanel panelRespuestas = (JPanel) componente;
+
+                for (Component componentePanel : panelRespuestas.getComponents()) {
+                    if (componentePanel instanceof JRadioButton) {
+                        JRadioButton radio = (JRadioButton) componentePanel;
+                        if (radio.isSelected()) {
+                            radioSeleccionado.add(radio);
+                        }
                     }
                 }
             }
         }
+        
+           // Mostramos las respuestas seleccionadas
+        ArrayList<String> respuestas = new ArrayList<>();
+        boolean hayRespuesta = false;
+        
+        for (JRadioButton radio : radioSeleccionado) { // Obtenemos los valores de las respuestas
+            String respuesta = radio != null ? radio.getText() : null;
+            if (respuesta != null) {
+                respuestas.add(respuesta);
+                hayRespuesta = true;
+            }
+        }
 
-        String respuesta = radioSeleccionado != null ? radioSeleccionado.getText() : "No se seleccionó respuesta";
-        System.out.println("Respuesta: " + respuesta);
+        if (hayRespuesta) {
+            for (String respuesta : respuestas) {
+                System.out.print(respuesta);
+                if (respuestas.size() > 1) {
+                    System.out.print(" , ");
+                }
+            }
+            
+            System.out.println();
+        } else {
+            System.out.println("null");
+        }
 
         // Avanza a la siguiente pregunta
         preguntaActual++;
@@ -199,7 +245,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         this.radioSeleccionados = 0;
         cardLayout.show(panelPrincipal, idPregunta);
     }
-
+ 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
