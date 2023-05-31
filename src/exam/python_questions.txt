@@ -1,19 +1,19 @@
-¿Python es un lenguaje de programación interpretado? | V | null | VF
-¿Python es fácil de aprender para los principiantes? | V | null | VF
-¿Python fue nombrado en honor al grupo de comedia británico Monty Python? | V | null | VF
-¿Python ofrece una gran cantidad de bibliotecas para el procesamiento de datos? | V | null | VF
-¿Es posible utilizar Python para el desarrollo de aplicaciones web y móviles? | V | null | VF
-¿Python es utilizado principalmente para la ciencia de datos; inteligencia artificial y aprendizaje automático? | V | null | VF
-¿Es posible crear interfaces gráficas de usuario (GUI) utilizando Python? | V | null | VF
-¿Python es un lenguaje de programación de alto nivel? | V | null | VF
-¿Python es utilizado por grandes compañías como Amazon; Google y Facebook? | V | null | VF
-¿Python es un lenguaje de programación de código abierto? | V | null | VF
+¿Python es un lenguaje de programación interpretado? | V | F | VF
+¿Python es fácil de aprender para los principiantes? | V | F | VF
+¿Python fue nombrado en honor al grupo de comedia británico Monty Python? | V | F | VF
+¿Python ofrece una gran cantidad de bibliotecas para el procesamiento de datos? | V | F | VF
+¿Es posible utilizar Python para el desarrollo de aplicaciones web y móviles? | V | F | VF
+¿Python es utilizado principalmente para la ciencia de datos; inteligencia artificial y aprendizaje automático? | V | F | VF
+¿Es posible crear interfaces gráficas de usuario (GUI) utilizando Python? | V | F | VF
+¿Python es un lenguaje de programación de alto nivel? | V | F | VF
+¿Python es utilizado por grandes compañías como Amazon; Google y Facebook? | V | F | VF
+¿Python es un lenguaje de programación de código abierto? | V | F | VF
 
 ¿Cómo se llama el módulo en Python utilizado para hacer peticiones HTTP? | requests | json; re | S1
 ¿Qué método se utiliza en Python para eliminar el primer elemento de una lista? | pop(0) | remove(0); append(0) | S1
 ¿Cuál es el operador utilizado en Python para hacer exponenciación? | ** | //; == | S1
 ¿Cómo se declara una lista vacía en Python? | [] | {}; () | S1
-¿Cuál es la sintaxis correcta para abrir un archivo en modo escritura en Python? | open("archivo.txt"; "w") | open("archivo.txt", "r"); open("archivo.txt", "a") | S1
+¿Cuál es la sintaxis correcta para abrir un archivo en modo escritura en Python? | open("archivo.txt", "w") | open("archivo.txt", "r"); open("archivo.txt", "a") | S1
 ¿Qué tipo de dato se utiliza para representar valores binarios en Python? | bool | int; float | S1
 ¿Cómo se llama la función utilizada para ordenar una lista en Python? | sorted() | shuffle(); reverse() | S1
 ¿Qué se utiliza en Python para manejar excepciones o errores en el código? | try...except | if...else; for...in | S1

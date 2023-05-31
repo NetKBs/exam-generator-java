@@ -18,10 +18,11 @@ public final class Question {
         this.answer = answer;
 
         // Verify if is null or empty (just possible if is type VF)
-        if ("VF".equals(type)) {
+
+        if ("CD".equals(type)) {
             // For true/false question, another_answers must be null
-            if (another_answers != null) {
-                throw new IllegalArgumentException("Cannot have wrong answers for a true/false question.");
+            if (another_answers.length > 0) {
+                throw new IllegalArgumentException("Cannot have wrong answers for a coding question.");
             }
             this.another_answers = null;
         } else {
@@ -62,10 +63,10 @@ public final class Question {
     }
 
     public String[] getWrongAnswers() {
-        if (!type.equals("VF")) {
+        if (!type.equals("CD")) {
             return another_answers;
         }
-        return null;
+        return new String[0];
     }
 
     // Print question details

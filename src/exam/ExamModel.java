@@ -24,6 +24,10 @@ public final class ExamModel {
 
     }
 
+    public ExamModel() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // setters
     public void setQuestions(ArrayList<Question> questions) {
         this.questions = questions;
@@ -70,7 +74,7 @@ public final class ExamModel {
 
                 String question = line_elements[0].trim();
                 String[] answer = line_elements[1].trim().split(";");
-                String[] another_answers = line_elements[2].trim().equals("null") ? null : line_elements[2].trim().split(";");
+                String[] another_answers = line_elements[2].trim().equals("null") ?  new String[0]: line_elements[2].trim().split(";");
                 String type = line_elements[3].trim();
 
                 // save it
