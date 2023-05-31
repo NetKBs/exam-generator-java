@@ -5,6 +5,7 @@ package exam;
  * @author Net
  */
 
+import java.util.ArrayList;
 
 public final class Question {
 
@@ -18,7 +19,6 @@ public final class Question {
         this.answer = answer;
 
         // Verify if is null or empty (just possible if is type VF)
-
         if ("CD".equals(type)) {
             // For true/false question, another_answers must be null
             if (another_answers.length > 0) {
@@ -67,6 +67,30 @@ public final class Question {
             return another_answers;
         }
         return new String[0];
+    }
+
+    // get ponderation
+    public int verifyAnswer(String[] answers_user) {
+        
+        String[] correct_answers = getAnswers();
+        int correctCount = 0; // contador de respuestas correctas
+ 
+        for (int i = 0; i < correct_answers.length; i++) {
+            // comparar cada respuesta del usuario con la respuesta correcta correspondiente
+            // Eliminamos espacios en blanco completamente
+            if (getType().equals("CD")) {
+                correct_answers[i] = correct_answers[i].replaceAll(" ", ""); 
+                answers_user[i] = answers_user[i].replaceAll(" ", ""); 
+            }
+            
+            
+            if (i < answers_user.length && correct_answers[i].equals(answers_user[i])) {
+                correctCount++;
+            }
+        }
+        
+        int ponderation = correctCount == correct_answers.length ? 1 : 0;
+        return ponderation;
     }
 
     // Print question details

@@ -40,14 +40,14 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     private CardLayout cardLayout;
     private ArrayList<Question> preguntas;
     private int preguntaActual;
-    private Question pregunta_objeto_actual;
+    private ArrayList<Integer> notas = new ArrayList<>();
 
     public PreguntasGUI(ArrayList<Question> preguntas) {
         super("Preguntas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.preguntas = preguntas;
         this.preguntaActual = 0;
-    
+
         crearComponentes();
         setSize(600, 500);
         setLocationRelativeTo(null);
@@ -184,9 +184,10 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         btnContinuar.setActionCommand(Integer.toString(index));
         btnContinuar.addActionListener(this);
         panelPregunta.add(btnContinuar, BorderLayout.SOUTH);
-            
-        pregunta_objeto_actual = pregunta;
+
+      
         return panelPregunta;
+        
     }
 
     // Manejamos el envio de preguntas y la continuación con la siguiente
@@ -218,46 +219,44 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                 }
             }
         }
-
-        if (!radioSeleccionado.isEmpty()) {
+        
+        Question objeto_pregunta_actual = preguntas.get(preguntaActual);
+            
+        
+        
+        if (!objeto_pregunta_actual.getType().equals("CD")) {
             ArrayList<String> respuestas_radio = new ArrayList<>();
             // Mostramos las respuestas seleccionadas
 
-            boolean hayRespuesta = false;
+       
 
-            for (JRadioButton radio : radioSeleccionado) { // Obtenemos los valores de las respuestas
-                String respuesta = radio != null ? radio.getText() : null;
-                if (respuesta != null) {
-                    respuestas_radio.add(respuesta);
-                    hayRespuesta = true;
-                }
+            for (JRadioButton radio : radioSeleccionado) {
+                String respuesta = radio != null ? radio.getText() : ""; // Comprobación null
+                respuestas_radio.add(respuesta);
             }
 
-            if (hayRespuesta) {
-                for (String respuesta : respuestas_radio) {
-                    System.out.print(respuesta);
-                    if (respuestas_radio.size() > 1) {
-                        System.out.print(" , ");
-                    }
-                }
-
-                System.out.println();
-            } else {
-                System.out.println("null");
+            for (String q : respuestas_radio) {
+                System.out.println(q);
             }
-
+            
+            notas.add(objeto_pregunta_actual.verifyAnswer(respuestas_radio.toArray(new String[respuestas_radio.size()])));
+            
+            
         } else {
             if (textArea != null) {
                 String respuesta_textfield = textArea.getText();
+                
                 if (respuesta_textfield == null || respuesta_textfield.isEmpty()) {
                     respuesta_textfield = "";
                 }
-
-                System.out.println("Respuesta actual: " + respuesta_textfield);
                 
-            } else {
-                System.out.println("null"); // Agrega esta sentencia
-            }
+                
+                
+                String[] text_parm = {respuesta_textfield};             
+                notas.add(objeto_pregunta_actual.verifyAnswer(text_parm));
+
+            } 
+            
         }
 
         // Avanza a la siguiente pregunta
@@ -265,6 +264,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         if (preguntaActual >= preguntas.size()) {
             // Ya se han contestado todas las preguntas
             System.out.println("Ha respondido todas las preguntas");
+           
             return;
         }
 
