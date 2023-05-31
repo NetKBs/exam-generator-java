@@ -1,0 +1,54 @@
+ La declaración `int x;` inicializa la variable `x` con un valor predeterminado. | F | V | VF
+`sizeof(char)` en C++ siempre devuelve 1 byte. | V | F | VF
+Un puntero nulo es un puntero que apunta a la dirección de memoria 0. | V | F | VF
+El operador `\>` compara dos valores y devuelve verdadero si el primer valor es mayor que el segundo. | F | V | VF
+Una clase es una estructura de datos y una plantilla para generar objetos. | V | F | VF
+El operador `+=` en C++ realiza una suma y asignación en una sola instrucción. | V | F | VF
+`bool` es un tipo de dato básico en C++. | V | F | VF
+`cin` es un objeto de la clase `istream`. | V | F | VF
+Una excepción en C++ debe ser capturada o lanzada, de lo contrario el programa terminará con un error. | V | F | VF
+Un objeto en C++ es una instancia de una clase. | V | F | VF
+
+¿Cuál es el resultado de la siguiente operación: 10 / 3 en C++?| 3 | 3.33 ~ 3.0|S1
+¿Cuál es el tipo de dato utilizado para almacenar valores booleanos en C++?|bool|int~ char|S1
+¿Cuál es la palabra clave utilizada para definir una variable constante en C++?|const|static ~ final|S1
+¿Cuál es la diferencia entre un char y un string en C++?|Un string es un arreglo de caracteres, mientras que un char es solo un carácter|Un char puede almacenar más caracteres que un string ~ No hay diferencia entre un char y un string en C++|S1
+¿Cuál es la palabra clave utilizada para definir una clase en C++?|class|struct ~type|S1
+¿Cuál es la función utilizada para imprimir en la salida estándar en C++?|cout|printf ~ cin|S1
+¿Cuál es el operador utilizado para comparar dos valores en C++?|==|= ~ >|S1
+¿Cuál es la palabra clave utilizada para salir de un ciclo en C++?|break|exit ~ return|S1
+¿Cuál es la palabra clave utilizada para definir una función en C++?|function| method ~ void|S1
+¿Qué palabra clave se utiliza para definir un bucle while en C++?|while|loop ~ for|S1
+
+¿Cuál de las siguientes no es una estructura de control de flujo en C++?|do-while ~ switch|for ~ if ~ switch-if|S2
+¿Qué operador se utiliza para acceder al valor almacenado en una dirección de memoria en C++?| * ~ &| % ~ + ~ <<|S2
+¿Cuál de las siguientes no es una variable numérica entera en C++?| int ~ double|  long ~ short ~ char|S2
+¿Cuál es el uso principal de la función cout en C++? |Imprimir salida en la consola ~ Leer entrada del usuario| Realizar operaciones matemáticas~ I Asignar valores a variables ~ Manejar excepciones|S2
+¿Cómo se declara un arreglo de enteros en C++?|int miArreglo[size]; ~ int miArreglo[] = {1, 2, 3}; |array miArreglo[size]; ~  int[] miArreglo = [1, 2, 3]; ~ int miArreglo = {1, 2, 3};|S2
+¿De qué forma se declara una función en C++?| tipoRetorno nombreFuncion(tipoParametro parametro) {} ~ void nombreFuncion(tipoParametro parametro) {}| nombreFuncion(tipoParametro parametro) {} ~ tipoRetorno nombreFuncion = (tipoParametro parametro) => {}; ~ tipoRetorno nombreFuncion => {};|S2
+¿Qué operador lógico se utiliza para negar una expresión en C++?| ! ~ not| + ~ - ~ ¡|S2
+¿Cuál es el operador de asignación en C++?| = ~ += |:= ~ -= ~ **=|S2
+¿Cuál es la palabra reservada utilizada para terminar una estructura de control en C++?| break ~ continue| exit ~ stop ~ pass|S2
+¿Cuál es la forma de definir una constante en C++?| const tipo nombre = valor; ~ #define nombre valor|const valor = nombre; ~  #define valor nombre ~nombre const valor;|S2
+
+¿Cómo se inicializa un puntero en C++?|int* ptr = nullptr; ~ int* ptr = NULL; ~ int* ptr; ptr = nullptr;|int* ptr = 0; ~ int ptr = nullptr; ~ int* ptr; ptr = NULL;|S3
+¿Cuál es la sintaxis correcta para definir un objeto de la clase MiClase en C++? |MiClase obj; ~ MiClase obj(); ~ MiClase obj{};|MiClase obj = new MiClase;~ MiClase obj[];~ MiClase obj = {};|S3
+¿Qué es una referencia en C++?| Es un alias a una variable existente. ~ Es un tipo de variable que se utiliza para almacenar direcciones de memoria. ~ Es un tipo de operador utilizado para referirse a un objeto en memoria.|Es un tipo de variable que se utiliza para almacenar valores numéricos.~ Es una palabra clave utilizada para reservar espacio en memoria.~ Es una estructura de control utilizada para repetir un bloque de código.|S3
+¿Cuál es el operador de comparación que se utiliza para comparar dos variables en C++? | == ~ != ~ > | & ~ / ~ +|S3
+¿Qué es una clase en C++?|Es un tipo de dato personalizado que encapsula datos y funciones relacionadas.~ Es un tipo de operador utilizado para hacer referencia a una instancia de un objeto.~ Es un tipo de estructura de control utilizada para repetir un bloque de código.|Es un tipo de variable que almacena múltiples valores.~ Es una palabra clave utilizada para definir constantes.~ Es una estructura de datos utilizada para almacenar valores de diferentes tipos.|S3
+¿Cómo se compila un programa de C++ en la línea de comandos?|g++ programa.cpp -o ejecutable ~ gcc programa.cpp -o ejecutable ~ c++ programa.cpp -o ejecutable|g++ programa -o ejecutable ~ g++ programa.cpp ~ c++ programa.cpp|S3
+¿Cómo se define un constructor en la clase MiClase en C++?| MiClase(tipoParametro parametro) {} ~ MiClase(tipoParametro parametro) = default;  ~  MiClase(tipoParametro parametro);|void MiClase(tipoParametro parametro) {} ~ MiClase.constructor(tipoParametro parametro) {}|S3
+¿Cuál es la manera más común de imprimir en pantalla en C++?|std::cout << "Hola, mundo!"; ~ printf("Hola, mundo!"); ~ std::puts("Hola, mundo!");| I echo("Hola, mundo!"); ~ print("Hola, mundo!");|S3
+¿Qué hace la función strlen() en C++?|Devuelve la longitud de una cadena (string). ~ Devuelve el valor entero absoluto de un número. ~ Devuelve el puntero al primer elemento de un arreglo.|Devuelve el valor máximo de dos números. ~ Devuelve el valor mínimo de dos números.~ Devuelve la posición de un elemento dentro de un arreglo.|S3
+¿Cuál es la manera más común de solicitar entrada del usuario en C++? |std::cin >> miVariable; ~  getline(std::cin, miVariable);~ std::scanf("%d", &miVariable);|scanf("%d", miVariable); ~ std::gets(miVariable);|S3
+
+¿Cómo se declara una variable en C++ con el tipo "int" y el nombre "numero"? | int numero; | null | CD
+¿Cómo se utiliza la sentencia "if" en C++? | if (condicion) { /* Código si la condición es verdadera */ } | null |CD
+¿Cómo se define una función en C++ que tome dos números enteros como parámetros y devuelva su suma? | int suma(int num1, int num2) { return num1 + num2; } | null | CD
+¿Cómo se crea un bucle "for" que se repita 10 veces en C++? | for (int i=0; i<10; i++) { /* Código del bucle */ } | null |CD
+¿Cómo se crea un puntero en C++ que apunte a una variable "numero"? | int numero = 10; int *puntero = &numero; | null |CD
+¿Cómo se utiliza la sentencia "switch" en C++? | switch (variable) { case valor1: /* Código para valor1 */ break; case valor2: /* Código para valor2 */ break; } | null | CD
+¿Cómo se lee un número entero desde la entrada estándar en C++ y se almacena en una variable "numero"? | int numero; cin >> numero; | null |CD
+¿Cómo se declara un arreglo de enteros llamado "numeros" con capacidad para almacenar 5 elementos? | int numeros[5]; | null | CD
+¿Cómo se accede al tercer elemento de un arreglo llamado "elementos" de tipo "double"? | double elementos[5]; elementos[2]; | null |CD
+¿Cómo se utiliza la función "printf" en C++ para imprimir la cadena "Hola mundo!" en la consola? | printf("Hola mundo!"); | null |CD
