@@ -10,6 +10,8 @@ import exam.ExamModel;
 import exam.Question;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -43,29 +45,29 @@ public class Test extends javax.swing.JFrame implements ActionListener {
 
    
     
- 
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == guardarRespuestasButton) {
+ public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == guardarRespuestasButton) {
+        String fileName = "respuestas.txt";
+        try (FileWriter fw = new FileWriter(fileName)) {
+            // Recorrer los componentes del DataPanel
+            for (Component c : DataPanel.getComponents()) {
+                // Verificar si es un JRadioButton y si está seleccionado
+                if (c instanceof JRadioButton && ((JRadioButton) c).isSelected()) {
+                    // Escribir la respuesta en el archivo
+                    fw.write(((JRadioButton) c).getText() + "\n");
+                }
+                // Verificar si es una JTextArea
+                if (c instanceof JScrollPane && ((JScrollPane) c).getViewport().getView() instanceof JTextArea) {
+                    // Escribir la respuesta en el archivo
+                    fw.write(((JTextArea)((JScrollPane) c).getViewport().getView()).getText() + "\n");
+                }
+            }
             JOptionPane.showMessageDialog(this, "Respuestas guardadas exitosamente");
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
-
-    
-    
-    
-    
-    
-    
-
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
