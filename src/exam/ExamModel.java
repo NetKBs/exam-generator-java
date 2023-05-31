@@ -69,8 +69,8 @@ public final class ExamModel {
                 String[] line_elements = line.split("\\|"); // split the line into an array of elements using the separator |
 
                 String question = line_elements[0].trim();
-                String[] answer = line_elements[1].trim().split(",");
-                String[] another_answers = line_elements[2].trim().equals("null") ? null : line_elements[2].trim().split(",");
+                String[] answer = line_elements[1].trim().split(";");
+                String[] another_answers = line_elements[2].trim().equals("null") ? null : line_elements[2].trim().split(";");
                 String type = line_elements[3].trim();
 
                 // save it
@@ -103,14 +103,14 @@ public final class ExamModel {
         Collections.shuffle(vf);
         Collections.shuffle(s1);
         Collections.shuffle(s2);
-        //Collections.shuffle(s3);
-        //Collections.shuffle(code);
+        Collections.shuffle(s3);
+        Collections.shuffle(code);
 
         // Add the first 5 elements of each question type in order
         this.questions.addAll(vf.subList(0, 5));
         this.questions.addAll(s1.subList(0, 5));
         this.questions.addAll(s2.subList(0, 5));
-        //questions.addAll(s3.subList(0, 5));
-        //questions.addAll(code.subList(0, 5));
+        this.questions.addAll(s3.subList(0, 5));
+        this.questions.addAll(code.subList(0, 5));
     }
 }

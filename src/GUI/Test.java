@@ -5,6 +5,7 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import exam.ExamModel;
 import exam.Question;
 
@@ -19,6 +20,8 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
+        DataPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+        DataPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         ExamModel exam = new ExamModel("python");
         actualizarTexto(exam);
     }
@@ -47,61 +50,96 @@ public class Test extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(ScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addComponent(ScrollPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(ScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(ScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   private void actualizarTexto(ExamModel exam) {
-    //System.out.println(exam.getQuestions().size());
-    for (Question q : exam.getQuestions()) {
+    private void actualizarTexto(ExamModel exam) {
+        int counter = 0;
+        boolean vf_t = false, sm_t = false, cd_t = false;
 
-        DataPanel.add(new JLabel(q.getQuestion()));
-        DataPanel.add(Box.createVerticalStrut(10)); // separation
-
-        if ("VF".equals(q.getType())) {
-            JRadioButton vRadioButton = new JRadioButton("Verdadero");    // Definimos el primer Radio Button
-            vRadioButton.setActionCommand("Verdadero");  // Asignamos un Datos de Acción
-
-            JRadioButton fRadioButton = new JRadioButton("Falso");    // Definimos el segundo Radio Button
-            fRadioButton.setActionCommand("Falso");    // Asignamos un Datos de Acción
-
-            ButtonGroup group = new ButtonGroup();  // Instanciamos el ButtonGroup
-            group.add(vRadioButton);    // Agregamos el primer Radio Button al grupo
-            group.add(fRadioButton);    // Agregamos el segundo Radio Button al grupo
-
-            // Agregamos los Radio Button al DataPanel
-            DataPanel.add(vRadioButton);
-            DataPanel.add(fRadioButton);
-            DataPanel.add(Box.createVerticalStrut(20));
+        for (Question q : exam.getQuestions()) {
             
-        } else if ("S1".equals(q.getType())) {
-            // Correct option
-            for (String correct_q: q.getAnswers()) {
-                DataPanel.add(new JRadioButton(correct_q));
+            // Type Questions Tittle
+            if (counter == 0 && vf_t == false) {
+                JLabel titleLabel = new JLabel("VERDADERO O FALSO");
+                titleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+                titleLabel.setPreferredSize(new Dimension(800, 30)); // ajusta la altura del JLabel
+                DataPanel.add(titleLabel);
+                vf_t = true;
+
+            } else if (counter >= 5 && counter <= 20 && sm_t == false) {
+                JLabel titleLabel = new JLabel("SELECCIÓN MULTIPLE");
+                titleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+                titleLabel.setPreferredSize(new Dimension(800, 30)); // ajusta la altura del JLabel
+                DataPanel.add(titleLabel);
+                sm_t = true;
+
+            } else if (counter >= 20 && cd_t == false) {
+                JLabel titleLabel = new JLabel("CODIFICACIÓN");
+                titleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+                titleLabel.setPreferredSize(new Dimension(800, 30)); // ajusta la altura del JLabel
+                DataPanel.add(titleLabel);
+                cd_t = true;
             }
-     
-            // Another options
-            for (String another_q: q.getWrongAnswers()) {
-                DataPanel.add(new JRadioButton(another_q));
-            }
+
+            DataPanel.add(Box.createVerticalStrut(20)); // separation
             
-            DataPanel.add(Box.createVerticalStrut(20));
+            JLabel questionLabel = new JLabel(q.getQuestion()); // Question tittle
+            questionLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            questionLabel.setPreferredSize(new Dimension(800, 40)); // ajusta la altura del JLabel
+            DataPanel.add(questionLabel);
+
+            DataPanel.add(Box.createVerticalStrut(10)); // separation
+
+            if ("VF".equals(q.getType())) {
+                JRadioButton vRadioButton = new JRadioButton("Verdadero");
+                vRadioButton.setActionCommand("Verdadero");
+
+                JRadioButton fRadioButton = new JRadioButton("Falso");
+                fRadioButton.setActionCommand("Falso");
+
+                ButtonGroup group = new ButtonGroup();
+                group.add(vRadioButton);
+                group.add(fRadioButton);
+
+                // Agregamos los Radio Button al DataPanel
+                DataPanel.add(vRadioButton);
+                DataPanel.add(fRadioButton);
+
+                
+            } else if ("S1".equals(q.getType()) || "S2".equals(q.getType()) || "S3".equals(q.getType())) {
+                // Agregamos las opciones correctas e incorrectas
+                for (String correct_q : q.getAnswers()) {
+                    DataPanel.add(new JRadioButton(correct_q));
+                }
+
+                for (String another_q : q.getWrongAnswers()) {
+                    DataPanel.add(new JRadioButton(another_q));
+                }
+
+            } else {
+                // En caso de las preguntas de codificación
+
+                // Se crea el JScrollPane
+                JScrollPane scrollPane = new JScrollPane(new JTextArea(10, 20));
+                scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
+                DataPanel.add(scrollPane);
+            }
+
+            DataPanel.add(Box.createVerticalStrut(20)); // separation
+            counter++;
         }
     }
-}
-  
+
     /**
      * @param args the command line arguments
      */
@@ -116,16 +154,24 @@ public class Test extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
