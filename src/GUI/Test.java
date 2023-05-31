@@ -39,12 +39,7 @@ public class Test extends javax.swing.JFrame implements ActionListener {
 
     
 }
-        
-    
-   
-
-   
-    
+          
  public void actionPerformed(ActionEvent e) {
     if (e.getSource() == guardarRespuestasButton) {
         String fileName = "respuestas.txt";
@@ -52,15 +47,19 @@ public class Test extends javax.swing.JFrame implements ActionListener {
             // Recorrer los componentes del DataPanel
             for (Component c : DataPanel.getComponents()) {
                 // Verificar si es un JRadioButton y si está seleccionado
-                if (c instanceof JRadioButton && ((JRadioButton) c).isSelected()) {
-                    // Escribir la respuesta en el archivo
-                    fw.write(((JRadioButton) c).getText() + "\n");
+                if (c instanceof JRadioButton) {
+                    String respuesta = ((JRadioButton) c).isSelected() ? ((JRadioButton) c).getText() : "null"; // Si está seleccionado, obtenemos la respuesta; en caso contrario, guardamos "null"
+                    fw.write(respuesta + "\n");
                 }
                 // Verificar si es una JTextArea
                 if (c instanceof JScrollPane && ((JScrollPane) c).getViewport().getView() instanceof JTextArea) {
-                    // Escribir la respuesta en el archivo
-                    fw.write(((JTextArea)((JScrollPane) c).getViewport().getView()).getText() + "\n");
+                    // Verificar si hay texto escrito
+                    String respuesta = ((JTextArea)((JScrollPane) c).getViewport().getView()).getText().trim();
+                    // Si hay texto escrito, escribir la respuesta en el archivo. Si no hay texto escrito, escribir "null"
+                    fw.write(!respuesta.isEmpty() ? respuesta : "null" + "\n");
                 }
+              
+               
             }
             JOptionPane.showMessageDialog(this, "Respuestas guardadas exitosamente");
         } catch (IOException ex) {
