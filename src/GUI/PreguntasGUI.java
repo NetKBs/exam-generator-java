@@ -278,7 +278,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            ExamModel exam = new ExamModel("python");
+            ExamModel exam = new ExamModel("c");
             PreguntasGUI preguntasGUI = new PreguntasGUI(exam.getQuestions());
         });
     }
