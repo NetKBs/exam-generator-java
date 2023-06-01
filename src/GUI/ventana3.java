@@ -15,6 +15,7 @@ public class ventana3 extends javax.swing.JFrame {
      */
     public ventana3() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
