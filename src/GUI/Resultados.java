@@ -9,6 +9,17 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import exam.Question;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author Net
@@ -20,6 +31,7 @@ public class Resultados extends javax.swing.JFrame {
     private int total_corrects = 0;
     private int total_incorrects = 0;
     private String[] name;
+    ArrayList<Question> preguntas = new ArrayList<>();
 
     /**
      * Creates new form Resultados
@@ -34,11 +46,20 @@ public class Resultados extends javax.swing.JFrame {
         showData();
     }
 
+    public Resultados(ArrayList<Question> preguntas) {
+        setLocationRelativeTo(null);
+        initComponents();
+        loadGrades();
+        loadPersonData();
+        showData();
+        this.preguntas = preguntas;
+    }
+
     private void loadGrades() {
         String slice = File.separator;
         String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
         File archivo = new File(file_path);
-        
+
         try {
             Scanner scanner = new Scanner(archivo);
             scanner.useDelimiter(",");
@@ -47,43 +68,43 @@ public class Resultados extends javax.swing.JFrame {
                 notas.add(numero);
             }
             scanner.close();
-           
+
         } catch (FileNotFoundException e) {
             System.err.println("Error al cargar el archivo: " + e.getMessage());
         }
     }
-    
+
     private void loadPersonData() {
         String slice = File.separator;
         String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos_usr.txt";
         File archivo = new File(file_path);
-        
+
         try {
             Scanner scanner = new Scanner(archivo);
-            
+
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
                 this.name = line.split(",");
             }
             scanner.close();
-           
+
         } catch (FileNotFoundException e) {
             System.err.println("Error al cargar el archivo: " + e.getMessage());
         }
     }
-    
+
     private void showData() {
-              
+
         for (int n : notas) {
             this.total_grades += n;
-            
-            if(n == 0) {
-                this.total_incorrects ++;
+
+            if (n == 0) {
+                this.total_incorrects++;
             } else {
-                this.total_corrects ++;
+                this.total_corrects++;
             }
         }
-        
+
         LabelPonderation.setText(total_grades + " / 25"); // Show grades
         LabelCorrects.setText("Corrects: " + total_corrects); // Show corrects
         LabelIncorrects.setText("Incorrects: " + total_incorrects); // Show incorrects
@@ -104,6 +125,7 @@ public class Resultados extends javax.swing.JFrame {
         LabelIncorrects = new javax.swing.JTextField();
         LabelName = new javax.swing.JTextField();
         LabelCorrects = new javax.swing.JTextField();
+        ButtonListed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -125,7 +147,7 @@ public class Resultados extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LabelPonderation);
-        LabelPonderation.setBounds(100, 20, 180, 60);
+        LabelPonderation.setBounds(110, 70, 180, 60);
 
         LabelIncorrects.setEditable(false);
         LabelIncorrects.setBackground(new java.awt.Color(255, 255, 255));
@@ -136,7 +158,7 @@ public class Resultados extends javax.swing.JFrame {
         LabelIncorrects.setBorder(null);
         LabelIncorrects.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jPanel1.add(LabelIncorrects);
-        LabelIncorrects.setBounds(180, 90, 180, 40);
+        LabelIncorrects.setBounds(210, 150, 180, 40);
 
         LabelName.setEditable(false);
         LabelName.setBackground(new java.awt.Color(255, 255, 255));
@@ -152,7 +174,7 @@ public class Resultados extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LabelName);
-        LabelName.setBounds(0, 150, 390, 70);
+        LabelName.setBounds(0, 0, 390, 70);
 
         LabelCorrects.setEditable(false);
         LabelCorrects.setBackground(new java.awt.Color(255, 255, 255));
@@ -168,7 +190,19 @@ public class Resultados extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LabelCorrects);
-        LabelCorrects.setBounds(20, 90, 180, 40);
+        LabelCorrects.setBounds(0, 150, 180, 40);
+
+        ButtonListed.setBackground(new java.awt.Color(153, 0, 255));
+        ButtonListed.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        ButtonListed.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonListed.setText("Show Questions");
+        ButtonListed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonListedActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ButtonListed);
+        ButtonListed.setBounds(80, 250, 220, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,6 +229,11 @@ public class Resultados extends javax.swing.JFrame {
     private void LabelCorrectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabelCorrectsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LabelCorrectsActionPerformed
+
+    private void ButtonListedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonListedActionPerformed
+        VentanaPreguntas ventanaPreguntas = new VentanaPreguntas(preguntas);
+        ventanaPreguntas.setVisible(true);
+    }//GEN-LAST:event_ButtonListedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,10 +271,37 @@ public class Resultados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonListed;
     private javax.swing.JTextField LabelCorrects;
     private javax.swing.JTextField LabelIncorrects;
     private javax.swing.JTextField LabelName;
     private javax.swing.JTextField LabelPonderation;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+}
+
+class VentanaPreguntas extends JDialog {
+
+    private ArrayList<Question> preguntas = new ArrayList<>();
+
+    public VentanaPreguntas(ArrayList<Question> preguntas) {
+        this.preguntas = preguntas;
+
+        JList<Question> list = new JList<>(preguntas.toArray(Question[]::new));
+        add(new JScrollPane(list));
+
+        JButton cerrar = new JButton("Cerrar");
+        cerrar.setFont(new Font("Arial", Font.BOLD, 14));
+        cerrar.setBackground(new Color(153, 0, 255)); // Background Color
+        cerrar.setForeground(Color.WHITE); // Foreground color
+        cerrar.addActionListener((ActionEvent e) -> {
+            dispose();
+        });
+        add(cerrar, BorderLayout.SOUTH);
+
+        pack();
+        setLocationRelativeTo(null);
+    }
+
+    // Resto de los métodos
 }

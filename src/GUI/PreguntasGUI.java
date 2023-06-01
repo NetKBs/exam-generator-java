@@ -64,6 +64,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         Timer timer = new Timer();
 
         TimerTask task = new TimerTask() {
+            @Override
             public void run() {
                 // Mostrar el aviso y cambiar de ventana
                 JOptionPane.showMessageDialog(null, "Tiempo agotado", "Aviso", JOptionPane.WARNING_MESSAGE);
@@ -286,7 +287,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
             dispose(); // Cerramos la ventana actual
             saveGrades();
             // Creamos una instancia de la otra ventana y la hacemos visible
-            Resultados resultados = new Resultados();
+            Resultados resultados = new Resultados(preguntas);
             resultados.setVisible(true);
         }
 
