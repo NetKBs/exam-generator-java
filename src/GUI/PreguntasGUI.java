@@ -1,44 +1,37 @@
+package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.ItemEvent;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
-import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import java.awt.Container;
-
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import exam.ExamModel;
 import exam.Question;
 import GUI.Resultados;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 
 public class PreguntasGUI extends JFrame implements ActionListener {
 
@@ -49,10 +42,11 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     private int preguntaActual;
     private ArrayList<Integer> notas = new ArrayList<>();
 
-    public PreguntasGUI(ArrayList<Question> preguntas) {
+    public PreguntasGUI() {
         super("Preguntas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.preguntas = preguntas;
+        ExamModel exam = new ExamModel("python");
+        this.preguntas = exam.getQuestions();
         this.preguntaActual = 0;
 
         crearComponentes();
@@ -301,8 +295,8 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            ExamModel exam = new ExamModel("python");
-            PreguntasGUI preguntasGUI = new PreguntasGUI(exam.getQuestions());
+            
+            PreguntasGUI preguntasGUI = new PreguntasGUI();
         });
     }
 }
