@@ -27,11 +27,16 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JOptionPane;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import exam.ExamModel;
 import exam.Question;
 import GUI.Resultados;
-
+import java.awt.Color;
+import java.awt.Font;
 
 public class PreguntasGUI extends JFrame implements ActionListener {
 
@@ -44,15 +49,32 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public PreguntasGUI() {
         super("Preguntas");
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ExamModel exam = new ExamModel("python");
         this.preguntas = exam.getQuestions();
         this.preguntaActual = 0;
 
         crearComponentes();
-        setSize(600, 500);
+        setSize(650, 300);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        // Crear un Timer y un TimerTask para mostrar un aviso después de 45 minutos
+        Timer timer = new Timer();
+
+        TimerTask task = new TimerTask() {
+            public void run() {
+                // Mostrar el aviso y cambiar de ventana
+                JOptionPane.showMessageDialog(null, "Tiempo agotado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                dispose(); // Cerrar la ventana actual
+                Resultados resultados = new Resultados();
+                resultados.setVisible(true);
+            }
+        };
+
+        // Programar la tarea para que se ejecute después de 45 minutos
+        timer.schedule(task, 45 * 60 * 1000);
 
     }
 
@@ -87,6 +109,8 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
         // Title
         JTextArea textAreaPregunta = new JTextArea(pregunta.getQuestion());
+        textAreaPregunta.setAlignmentX(JTextArea.CENTER_ALIGNMENT);
+        textAreaPregunta.setFont(new Font("Arial", Font.BOLD, 16)); // Font
         textAreaPregunta.setLineWrap(true); // Establece la posibilidad de envoltura de contenido automáticamente
         textAreaPregunta.setWrapStyleWord(true); // Establece la posibilidad de envoltura de contenido por palabras completas
         textAreaPregunta.setEditable(false); // Desactiva la posibilidad de editar el texto
@@ -99,7 +123,10 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
             // Preguntas que usan RadioButtons
             if (tipos_seleccion.contains(pregunta.getType())) {
+                respuesta = "<html><p style='white-space: pre-wrap'>" + respuesta + "</p></html>";
                 JRadioButton radio = new JRadioButton(respuesta);
+
+                radio.setFont(new Font("Arial", Font.BOLD, 16));
                 radio.setActionCommand(index + "-" + i);  // Nombre que identifica la opcion
 
                 // ActionListener para el ItemEvent de los JRadioButton
@@ -182,13 +209,15 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         panelPregunta.add(panelRespuestas, BorderLayout.CENTER);
 
         JButton btnContinuar = new JButton("Continuar");
+        btnContinuar.setFont(new Font("Arial", Font.BOLD, 14));
+        btnContinuar.setBackground(new Color(153, 0, 255)); // Background Color
+        btnContinuar.setForeground(Color.WHITE); // Foreground color
         btnContinuar.setActionCommand(Integer.toString(index));
         btnContinuar.addActionListener(this);
         panelPregunta.add(btnContinuar, BorderLayout.SOUTH);
 
-      
         return panelPregunta;
-        
+
     }
 
     // Manejamos el envio de preguntas y la continuación con la siguiente
@@ -220,11 +249,9 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                 }
             }
         }
-        
+
         Question objeto_pregunta_actual = preguntas.get(preguntaActual);
-            
-        
-        
+
         if (!objeto_pregunta_actual.getType().equals("CD")) {
             ArrayList<String> respuestas_radio = new ArrayList<>();
             // Mostramos las respuestas seleccionadas
@@ -233,28 +260,27 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                 String respuesta = radio != null ? radio.getText() : ""; // Comprobación null
                 respuestas_radio.add(respuesta);
             }
-            
+
             notas.add(objeto_pregunta_actual.verifyAnswer(respuestas_radio.toArray(new String[respuestas_radio.size()])));
-            
-            
+
         } else {
             if (textArea != null) {
                 String respuesta_textfield = textArea.getText();
-                
+
                 if (respuesta_textfield == null || respuesta_textfield.isEmpty()) {
                     respuesta_textfield = "";
                 }
-                                  
-                String[] text_parm = {respuesta_textfield};             
+
+                String[] text_parm = {respuesta_textfield};
                 notas.add(objeto_pregunta_actual.verifyAnswer(text_parm));
 
-            } 
-            
+            }
+
         }
 
         // Avanza a la siguiente pregunta
         preguntaActual++;
-        
+
         if (preguntaActual >= preguntas.size()) {
             // Ya se han contestado todas las preguntas
             dispose(); // Cerramos la ventana actual
@@ -271,12 +297,12 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         this.radioSeleccionados = 0;
         cardLayout.show(panelPrincipal, idPregunta);
     }
-    
+
     public void saveGrades() {
         String slice = File.separator;
         String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
         File archivo = new File(file_path);
-        
+
         try {
             PrintWriter pw = new PrintWriter(archivo);
             for (int i = 0; i < notas.size(); i++) {
@@ -285,9 +311,9 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                     pw.print(",");
                 }
             }
-            
+
             pw.close();
-            
+
         } catch (FileNotFoundException e) {
             System.err.println("Error al guardar el archivo: " + e.getMessage());
         }
@@ -295,7 +321,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            
+
             PreguntasGUI preguntasGUI = new PreguntasGUI();
         });
     }
