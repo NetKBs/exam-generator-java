@@ -287,7 +287,11 @@ class VentanaPreguntas extends JDialog {
     public VentanaPreguntas(ArrayList<Question> preguntas) {
         this.preguntas = preguntas;
 
-        JList<Question> list = new JList<>(preguntas.toArray(Question[]::new));
+        JList<String> list = new JList<>(
+                preguntas.stream() // Crear un Stream de la lista de preguntas
+                        .map(Question::getQuestion) // Obtener el texto de cada pregunta
+                        .toArray(String[]::new) // Convertir a un arreglo de Strings
+        );
         add(new JScrollPane(list));
 
         JButton cerrar = new JButton("Cerrar");

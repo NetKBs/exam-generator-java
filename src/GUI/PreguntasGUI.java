@@ -70,7 +70,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         this.preguntaActual = 0;
 
         crearComponentes();
-        setSize(650, 300);
+        setSize(750, 300);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -138,7 +138,8 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
             // Preguntas que usan RadioButtons
             if (tipos_seleccion.contains(pregunta.getType())) {
-                respuesta = "<html><p style='white-space: pre-wrap'>" + respuesta + "</p></html>";
+                
+                //respuesta = "<html><p style='white-space: pre-wrap'>" + respuesta + "</p></html>";
                 JRadioButton radio = new JRadioButton(respuesta);
 
                 radio.setFont(new Font("Arial", Font.BOLD, 16));
@@ -314,6 +315,9 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     }
 
     public void saveGrades() {
+        for (int n : notas) {
+            System.out.println(n);
+        }
         String slice = File.separator;
         String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
         File archivo = new File(file_path);

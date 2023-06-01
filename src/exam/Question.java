@@ -84,6 +84,7 @@ public final class Question {
             }
             
             
+            
             if (i < answers_user.length && correct_answers[i].equals(answers_user[i])) {
                 correctCount++;
             }

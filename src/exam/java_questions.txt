@@ -13,7 +13,7 @@ Todos los objetos en Java heredan de la clase Object. | V | F | VF
 ¿La palabra clave static puede ser usada para declarar métodos en Java? | Sí | No ~ solo para atributos ~ static no es una palabra clave válida | S1 
 ¿Cuál es el método utilizado para encadenar dos cadenas de texto en Java? | concat() | attach() ~ join() | S1 
 ¿En qué parte del ciclo de vida de un objeto en Java ocurre la inicialización? | Constructor | Método finalize() ~ Método run() | S1 
-¿Cuál es el resultado de la siguiente operación en Java? true || false | true | false ~ null | S1 
+¿Cuál es el resultado de la siguiente operación en Java? true | false | true | false ~ null | S1 
 En Java ~ ¿qué son las excepciones? | Errores que ocurren en tiempo de ejecución y que pueden ser manejados con bloque try-catch | Un tipo de dato primitivo ~ Librerías para manejar bases de datos | S1 
 ¿Qué es un interface en Java? | Una entidad que define un conjunto de métodos que una clase debe implementar | Un objeto visual en la pantalla ~ Una variable estática | S1 
 ¿Cuál es el propósito del operador ternario ? : en Java? | Realizar una operación condicional en una sola línea de código | Convertir el tipo de dato de una variable ~ Definir una nueva variable | S1 
