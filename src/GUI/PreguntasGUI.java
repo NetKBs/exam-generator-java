@@ -315,9 +315,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     }
 
     public void saveGrades() {
-        for (int n : notas) {
-            System.out.println(n);
-        }
+        
         String slice = File.separator;
         String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
         File archivo = new File(file_path);

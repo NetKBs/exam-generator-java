@@ -8,9 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
 
-public class Ventana extends javax.swing.JFrame {
+public class MenuInicio extends javax.swing.JFrame {
 
-    public Ventana() {
+    public MenuInicio() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -142,7 +142,7 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnenviarActionPerformed
-        Ventana2 a = new Ventana2();
+        SeleccionLenguaje a = new SeleccionLenguaje();
         String name = txtnombre.getText();
         String lastname = txtapellido.getText();
 
@@ -175,7 +175,7 @@ public class Ventana extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana().setVisible(true);
+                new MenuInicio().setVisible(true);
             }
         });
     }

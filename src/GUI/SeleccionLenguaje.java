@@ -10,12 +10,12 @@ import java.io.FileNotFoundException;
  *
  * @author Manue
  */
-public class Ventana2 extends javax.swing.JFrame {
+public class SeleccionLenguaje extends javax.swing.JFrame {
 
     /**
      * Creates new form Ventana2
      */
-    public Ventana2() {
+    public SeleccionLenguaje() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -220,7 +220,7 @@ public class Ventana2 extends javax.swing.JFrame {
     }//GEN-LAST:event_java_checkActionPerformed
 
     private void irbttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irbttonActionPerformed
- ventana3 b = new ventana3();
+ Confirmacion b = new Confirmacion();
     b.setVisible(true);
 
     // Obtener la selección
@@ -272,20 +272,21 @@ public class Ventana2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionLenguaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionLenguaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionLenguaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionLenguaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana2().setVisible(true);
+                new SeleccionLenguaje().setVisible(true);
             }
         });
     }
