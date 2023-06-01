@@ -15,6 +15,7 @@ import java.awt.GridBagLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +40,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class PreguntasGUI extends JFrame implements ActionListener {
-
+    String seleccion = "java";
     int radioSeleccionados = 0; // Variable contadora
     private JPanel panelPrincipal;
     private CardLayout cardLayout;
@@ -51,10 +52,22 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         super("Preguntas");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ExamModel exam = new ExamModel("python");
+        File archivoTemporal = new File("seleccion.txt");
+try {
+    Scanner scanner = new Scanner(archivoTemporal);
+    if(scanner.hasNext()) {
+        seleccion = scanner.next();
+    }
+    scanner.close();
+} catch (FileNotFoundException e) {
+    // Manejar una posible excepción
+    e.printStackTrace();
+}
+ 
+      ExamModel exam = new ExamModel(seleccion);
         this.preguntas = exam.getQuestions();
         this.preguntaActual = 0;
-
+       
         crearComponentes();
         setSize(650, 300);
         setLocationRelativeTo(null);
@@ -322,6 +335,9 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
+            // Borrar el archivo de selección temporal
+         File archivoTemporal = new File("seleccion.txt");
+         archivoTemporal.delete();
 
             PreguntasGUI preguntasGUI = new PreguntasGUI();
         });
