@@ -1,0 +1,54 @@
+¿C# es un lenguaje de programación orientado a objetos? | V | F|VF
+¿C# es un lenguaje compilado? | V | F
+¿C# es un lenguaje interpretado? | F | V
+¿C# se utiliza principalmente para desarrollar aplicaciones de escritorio? | V | F|VF
+¿C# es un lenguaje de programación creado por Microsoft? | V | F
+¿C# se utiliza comúnmente en el desarrollo de aplicaciones web? | V | F|VF
+¿C# permite la programación asincrónica? | V | F|VF
+¿C# no permite la sobrecarga de métodos? | F | V|VF
+¿C# tiene una función para convertir una cadena a un número entero? | V | F|VF
+¿C# tiene una forma de simplificar la escritura de bloques if-else utilizando el operador ternario? | V | F|VF
+
+¿Qué significa C# en realidad? | C Sharp | C Flat ~ C Plus Plus|S1
+¿Se requiere un compilador especial para compilar programas C#? | No, el compilador ya está incluido en Visual Studio | Sí, se necesita un compilador de terceros ~ Sí, el compilador solo está disponible en Windows|S1
+¿En C#, la declaración de 'float' y 'double' requiere una f al final del número? | Solo float | Solo double ~ Ninguno de los dos|S1
+¿C# tiene recolector de basura? | Sí | No, solo en aplicaciones .NET Core ~ No, solo en aplicaciones Windows Forms|S1
+¿Qué palabra clave se usa en C# para crear un bucle while? | 'while' | 'when'~ 'loop'|S1
+¿Es C# un lenguaje de tipado estático? | Sí | No, es un lenguaje de tipado dinámico  ~ A veces es dinámico, a veces estático|S1
+¿Para crear comentarios de una línea en C#, se utiliza // al comienzo de la línea? | Sí | No, se utiliza -- ~ No, se utiliza //|S1
+¿En C#, la palabra clave 'static' se utiliza para declarar una variable que solo se puede inicializar una vez? | No, esa palabra clave se utiliza para declarar una propiedad | Sí, así es | No, esa palabra clave se utiliza para declarar una constante|S1
+¿C# tiene una función integrada que se utiliza para obtener la longitud de una cadena? | Sí, se llama Length | No, no hay una función para eso ~ Sí, se llama GetLength|S1
+¿En C#, qué simbolo se utiliza para declarar una variable string? | " | ' ~ %|S1
+
+¿Qué es el boxing en C#? |Es la conversión de un tipo de valor en un tipo de referencia.~ Es la conversión de un objeto a su tipo base.|Es la conversión de una variable int a un string. ~ Es la conversión de un array a un int.|S2
+¿Cómo se llama el proceso por el cual una clase puede heredar características de otra? |Herencia ~ Extend|Polimorfismo ~Encapsulación|S2
+¿Qué es el patrón de diseño Singleton?| Es un patrón de diseño creacional que garantiza que una clase solo tenga una instancia y proporciona acceso global a ella. ~ Es un patrón de diseño de Software que se utiliza para reducir la complejidad del código.|Es un patrón de diseño estructural que se utiliza para definir la relación entre clases y objetos. ~ Es un patrón de diseño que se utiliza para representar estructuras jerárquicas de objetos.|S2
+¿Para qué se utiliza la palabra clave 'base' dentro de un método en C#?| Para llamar al constructor de la clase base o para acceder a los miembros de la clase base.~ Para especificar la clase base de una clase derivada.| Para llamar al destructor de la clase base o para acceder a los miembros de la clase hija. ~ Para acceder a los miembros de una interfaz.|S2
+¿Qué es un evento en C#?|Es una técnica de programación que permite a los objetos comunicarse entre sí.~ Es una clase que encapsula un delegado.|Es una variable que se utiliza como un contador.~ Es una clase que define una entidad específica.|S2
+¿Qué es el polimorfismo en C#?| Es la capacidad de una clase para tomar varias formas.~ Es la capacidad de una clase para responder a un mensaje con diferentes acciones.|Es la capacidad de una clase para tener múltiples constructores. ~ Es la capacidad de una clase para acceder a los miembros privados de otra clase.|S2
+¿Qué es un constructor en C#?| Es un método especial que se llama automáticamente cuando se crea una instancia de un objeto.~ Es un método que se utiliza para inicializar los miembros de una clase.|Es un método que se encarga de destruir un objeto.~Es un método que se ejecuta antes del destructor.|S2
+¿Cómo se declara una variable constante en C#?|Con la palabra clave 'const'. ~ Con la palabra clave 'readonly'. |Con la palabra clave 'final'.~ Con la palabra clave 'static'.|S2
+¿Qué son los genéricos en C#?|Son tipos de datos que se pueden definir sin especificar un tipo concreto.~Son tipos de datos que permiten escribir código reutilizable.| Son tipos de datos que solo se pueden usar en ciertos momentos.~Son tipos de datos que solo se pueden usar en algunos sistemas operativos.|S2
+¿Qué es la sobrecarga de métodos en C#?| Es la capacidad de una clase de tener dos o más métodos con el mismo nombre, pero con diferentes parámetros. ~ Es la capacidad de una clase de tener dos o más constructores con diferentes parámetros.|Es la capacidad de modificar los métodos de una clase padre. ~ Es la capacidad de ocultar los métodos de una clase padre.|S2
+
+¿C# es un lenguaje orientado a objetos? | Sí, C# es un lenguaje orientado a objetos ~ El encapsulamiento es un concepto clave en la programación orientada a objetos ~ Permite la creación de clases y objetos | C# es un lenguaje de programación procedural~ C# no permite la creación de objetos|S3
+¿C# es un lenguaje compilado? |Sí, C# es un lenguaje compilado ~ El compilador de C# se encarga de traducir el código fuente a un archivo ejecutable Esto aumenta la velocidad y la seguridad del código |C# es un lenguaje interpretado~ C# se puede ejecutar directamente desde el código fuente|S3
+¿C# es compatible con el framework .NET de Microsoft? |Sí, C# es compatible con el framework .NET ~ .NET es un conjunto de bibliotecas de clases para aplicaciones Windows~ C# es un lenguaje de programación que se utiliza con .NET |C# no es compatible con .NET~ .NET es una plataforma de programación web|S3
+¿C# es adecuado para el desarrollo web? |Sí, C# es adecuado para el desarrollo web ~ Permite la creación de aplicaciones web utilizando ASP.NET~ Es uno de los lenguajes más populares para el desarrollo web |C# no es adecuado para el desarrollo web ~ C# sólo se utiliza en aplicaciones de escritorio|S3
+¿C# es un lenguaje multiplataforma? |Sí, C# es un lenguaje multiplataforma ~Se puede utilizar para crear aplicaciones en diferentes sistemas operativos ~ .NET Core es un framework multiplataforma para C# | C# sólo se puede utilizar en Windows,~ C# no es compatible con otros sistemas operativos|S3
+¿En C# los tipos de datos deben ser declarados al momento de la creación de variables? |Sí, C# es un lenguaje fuertemente tipado ~ Siempre se debe especificar el tipo de dato de una variable ~ Esto ayuda a prevenir errores en tiempo de ejecución | C# es un lenguaje débilmente tipado ~ No es necesario especificar el tipo de dato de una variable en C#|S3
+¿C# es un lenguaje de programación de código abierto? |Sí, C# es de código abierto ~ El compilador de C# (Roslyn) es de código abierto~ La plataforma .NET Core es de código abierto |C# es un lenguaje propietario de Microsoft ~ C# no tiene una comunidad de código abierto	|S3
+¿En C# el parámetro "ref" permite pasar una variable por referencia? |Sí, el parámetro "ref" permite pasar una variable por referencia ~ Esto hace que los cambios en la variable se reflejen en la función que la llama ~ Esto se utiliza cuando se necesita modificar el valor de una variable dentro de una función |El parámetro "ref" no existe en C#~ El parámetro "ref" sólo se utiliza en lenguajes de programación antiguos|S3
+¿C# soporta la herencia múltiple? |No, C# no soporta la herencia múltiple ~ Sólo permite la herencia de una clase base ~ Se puede implementar la herencia múltiple a través de interfaces |Sí, C# soporta la herencia múltiple ~ La herencia múltiple es una característica clave de C#|S3
+¿C# es un lenguaje de programación interpretado? |No, C# es un lenguaje compilado ~ El código fuente de C# debe ser compilado antes de ser ejecutado ~ El compilador genera un archivo ejecutable |Sí, C# es un lenguaje interpretado ~ C# permite la ejecución directa del código fuente sin necesidad de compilación.|S3
+
+¿Cómo obtener la longitud de una cadena (string) en C#? | string palabra = "programacion"; int longitud = palabra.Length; | null | CD
+¿Cómo agregar un elemento a una lista "lista_" en C#? | lista_.Add(elemento); | null | CD
+¿Cómo obtener la hora actual del sistema en C#? | DateTime horaActual = DateTime.Now; | null | CD
+Cómo instanciar un objeto de una clase "ClaseEjemplo" en C#? | ClaseEjemplo objetoEjemplo = new ClaseEjemplo(); | null | CD
+¿Cómo se define una función que tome dos parámetros llamados "a" y "b" en C#? | public void FuncionEjemplo(int a, int b) { } | null | CD
+¿Cómo se ve el código para leer una línea de entrada de la consola en C#? | string entrada = Console.ReadLine(); | null | CD
+¿Cómo se convierte una cadena de caracteres a un número entero (int) en C#? | int numero = int.Parse(cadena); | null | CD
+¿Cómo se compara si dos cadenas de texto son iguales en C#? | if (cadena1.Equals(cadena2)) { } | null | CD
+¿Cómo se declara una matriz (array) de longitud 5 en C#? | int[] array = new int[5]; | null | CD
+¿Cómo se define una constante con valor "3.14" en C#? | const double pi = 3.14; | null | CD
