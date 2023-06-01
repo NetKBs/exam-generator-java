@@ -7,6 +7,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
+
 import java.util.Set;
 import java.util.HashSet;
 
@@ -26,6 +31,8 @@ import java.awt.event.ItemListener;
 
 import exam.ExamModel;
 import exam.Question;
+import GUI.Resultados;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -228,15 +235,9 @@ public class PreguntasGUI extends JFrame implements ActionListener {
             ArrayList<String> respuestas_radio = new ArrayList<>();
             // Mostramos las respuestas seleccionadas
 
-       
-
             for (JRadioButton radio : radioSeleccionado) {
                 String respuesta = radio != null ? radio.getText() : ""; // Comprobación null
                 respuestas_radio.add(respuesta);
-            }
-
-            for (String q : respuestas_radio) {
-                System.out.println(q);
             }
             
             notas.add(objeto_pregunta_actual.verifyAnswer(respuestas_radio.toArray(new String[respuestas_radio.size()])));
@@ -249,9 +250,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
                 if (respuesta_textfield == null || respuesta_textfield.isEmpty()) {
                     respuesta_textfield = "";
                 }
-                
-                
-                
+                                  
                 String[] text_parm = {respuesta_textfield};             
                 notas.add(objeto_pregunta_actual.verifyAnswer(text_parm));
 
@@ -261,11 +260,14 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
         // Avanza a la siguiente pregunta
         preguntaActual++;
+        
         if (preguntaActual >= preguntas.size()) {
             // Ya se han contestado todas las preguntas
-            System.out.println("Ha respondido todas las preguntas");
-           
-            return;
+            dispose(); // Cerramos la ventana actual
+            saveGrades();
+            // Creamos una instancia de la otra ventana y la hacemos visible
+            Resultados resultados = new Resultados();
+            resultados.setVisible(true);
         }
 
         // Obtiene la ID de la siguiente pregunta
@@ -275,10 +277,31 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         this.radioSeleccionados = 0;
         cardLayout.show(panelPrincipal, idPregunta);
     }
+    
+    public void saveGrades() {
+        String slice = File.separator;
+        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
+        File archivo = new File(file_path);
+        
+        try {
+            PrintWriter pw = new PrintWriter(archivo);
+            for (int i = 0; i < notas.size(); i++) {
+                pw.print(notas.get(i));
+                if (i != notas.size() - 1) {
+                    pw.print(",");
+                }
+            }
+            
+            pw.close();
+            
+        } catch (FileNotFoundException e) {
+            System.err.println("Error al guardar el archivo: " + e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            ExamModel exam = new ExamModel("c");
+            ExamModel exam = new ExamModel("python");
             PreguntasGUI preguntasGUI = new PreguntasGUI(exam.getQuestions());
         });
     }

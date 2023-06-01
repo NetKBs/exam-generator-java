@@ -99,8 +99,7 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 260, -1));
 
-        txtnombre.setForeground(new java.awt.Color(204, 204, 204));
-        txtnombre.setText("Ingrese su nombre");
+        txtnombre.setForeground(new java.awt.Color(0, 0, 0));
         txtnombre.setBorder(null);
         jPanel1.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, 30));
 
@@ -109,10 +108,14 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 270, -1));
 
-        txtapellido.setForeground(new java.awt.Color(204, 204, 204));
-        txtapellido.setText("Ingrese su Apellido");
+        txtapellido.setForeground(new java.awt.Color(0, 0, 0));
         txtapellido.setBorder(null);
-        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, 30));
+        txtapellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapellidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 240, 30));
 
         btnenviar.setText("Enviar");
         btnenviar.addActionListener(new java.awt.event.ActionListener() {
@@ -144,14 +147,12 @@ public class Ventana extends javax.swing.JFrame {
         String lastname = txtapellido.getText();
 
         String slice = File.separator;
-        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos.txt";
-        System.out.println(file_path);
-
-        user.Person person = new user.Person(name, lastname);
+        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos_usr.txt";
+        
 
         try {
             FileWriter writer = new FileWriter(file_path, true);
-            writer.write(person.getName() + " |" + person.getLastname() + "\n");
+            writer.write(name + " , " + lastname + "\n");
             writer.close();
         } catch (IOException e) {
             System.out.println("Ocurrió un error al guardar el archivo.");
@@ -162,6 +163,10 @@ public class Ventana extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_btnenviarActionPerformed
+
+    private void txtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtapellidoActionPerformed
 
     /**
      * @param args the command line arguments

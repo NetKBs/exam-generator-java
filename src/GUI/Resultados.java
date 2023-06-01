@@ -4,17 +4,90 @@
  */
 package GUI;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Net
  */
 public class Resultados extends javax.swing.JFrame {
 
+    private ArrayList<Integer> notas = new ArrayList<>();
+    private int total_grades = 0;
+    private int total_corrects = 0;
+    private int total_incorrects = 0;
+    private String[] name;
+
     /**
      * Creates new form Resultados
+     *
+     * @param
      */
     public Resultados() {
+        setLocationRelativeTo(null);
         initComponents();
+        loadGrades();
+        loadPersonData();
+        showData();
+    }
+
+    private void loadGrades() {
+        String slice = File.separator;
+        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
+        File archivo = new File(file_path);
+        
+        try {
+            Scanner scanner = new Scanner(archivo);
+            scanner.useDelimiter(",");
+            while (scanner.hasNext()) {
+                int numero = scanner.nextInt();
+                notas.add(numero);
+            }
+            scanner.close();
+           
+        } catch (FileNotFoundException e) {
+            System.err.println("Error al cargar el archivo: " + e.getMessage());
+        }
+    }
+    
+    private void loadPersonData() {
+        String slice = File.separator;
+        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos_usr.txt";
+        File archivo = new File(file_path);
+        
+        try {
+            Scanner scanner = new Scanner(archivo);
+            
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                this.name = line.split(",");
+            }
+            scanner.close();
+           
+        } catch (FileNotFoundException e) {
+            System.err.println("Error al cargar el archivo: " + e.getMessage());
+        }
+    }
+    
+    private void showData() {
+              
+        for (int n : notas) {
+            this.total_grades += n;
+            
+            if(n == 0) {
+                this.total_incorrects ++;
+            } else {
+                this.total_corrects ++;
+            }
+        }
+        
+        LabelPonderation.setText(total_grades + " / 25"); // Show grades
+        LabelCorrects.setText("Corrects: " + total_corrects); // Show corrects
+        LabelIncorrects.setText("Incorrects: " + total_incorrects); // Show incorrects
+        LabelName.setText(name[0] + name[1]); // Show complete name
     }
 
     /**
@@ -26,21 +99,102 @@ public class Resultados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        LabelPonderation = new javax.swing.JTextField();
+        LabelIncorrects = new javax.swing.JTextField();
+        LabelName = new javax.swing.JTextField();
+        LabelCorrects = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+
+        LabelPonderation.setEditable(false);
+        LabelPonderation.setBackground(new java.awt.Color(255, 255, 255));
+        LabelPonderation.setFont(new java.awt.Font("Bitstream Vera Sans", 1, 48)); // NOI18N
+        LabelPonderation.setForeground(new java.awt.Color(153, 0, 255));
+        LabelPonderation.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        LabelPonderation.setText("0 / 25");
+        LabelPonderation.setBorder(null);
+        LabelPonderation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LabelPonderationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LabelPonderation);
+        LabelPonderation.setBounds(100, 20, 180, 60);
+
+        LabelIncorrects.setEditable(false);
+        LabelIncorrects.setBackground(new java.awt.Color(255, 255, 255));
+        LabelIncorrects.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        LabelIncorrects.setForeground(new java.awt.Color(0, 0, 0));
+        LabelIncorrects.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        LabelIncorrects.setText("Incorrects: 0");
+        LabelIncorrects.setBorder(null);
+        LabelIncorrects.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jPanel1.add(LabelIncorrects);
+        LabelIncorrects.setBounds(180, 90, 180, 40);
+
+        LabelName.setEditable(false);
+        LabelName.setBackground(new java.awt.Color(255, 255, 255));
+        LabelName.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        LabelName.setForeground(new java.awt.Color(0, 0, 0));
+        LabelName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        LabelName.setText("Avian Ramitos de flores");
+        LabelName.setBorder(null);
+        LabelName.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LabelName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LabelNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LabelName);
+        LabelName.setBounds(0, 150, 390, 70);
+
+        LabelCorrects.setEditable(false);
+        LabelCorrects.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCorrects.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        LabelCorrects.setForeground(new java.awt.Color(0, 0, 0));
+        LabelCorrects.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        LabelCorrects.setText("Corrects: 0");
+        LabelCorrects.setBorder(null);
+        LabelCorrects.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LabelCorrects.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LabelCorrectsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LabelCorrects);
+        LabelCorrects.setBounds(20, 90, 180, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LabelPonderationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabelPonderationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelPonderationActionPerformed
+
+    private void LabelNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabelNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelNameActionPerformed
+
+    private void LabelCorrectsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabelCorrectsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelCorrectsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +232,10 @@ public class Resultados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField LabelCorrects;
+    private javax.swing.JTextField LabelIncorrects;
+    private javax.swing.JTextField LabelName;
+    private javax.swing.JTextField LabelPonderation;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
