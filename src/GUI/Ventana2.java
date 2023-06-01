@@ -38,10 +38,12 @@ public class Ventana2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        c_checkbox = new javax.swing.JCheckBox();
+        cplus_check = new javax.swing.JCheckBox();
+        java_check = new javax.swing.JCheckBox();
+        python_check = new javax.swing.JCheckBox();
+        cnumeral_check = new javax.swing.JCheckBox();
+        irbtton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,36 +138,53 @@ public class Ventana2 extends javax.swing.JFrame {
         jLabel3.setText("programming language as ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
-        jCheckBox2.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jCheckBox2.setText("C");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        c_checkbox.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        c_checkbox.setText("C");
+        c_checkbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                c_checkboxActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
+        jPanel1.add(c_checkbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jCheckBox1.setText("C++");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cplus_check.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        cplus_check.setText("C++");
+        cplus_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cplus_checkActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+        jPanel1.add(cplus_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
-        jCheckBox3.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jCheckBox3.setText("Java");
-        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
-
-        jCheckBox4.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jCheckBox4.setText("Python");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        java_check.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        java_check.setText("Java");
+        java_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                java_checkActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
+        jPanel1.add(java_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+
+        python_check.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        python_check.setText("Python");
+        python_check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                python_checkActionPerformed(evt);
+            }
+        });
+        jPanel1.add(python_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
+
+        cnumeral_check.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        cnumeral_check.setText("C#");
+        jPanel1.add(cnumeral_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
+
+        irbtton.setText("IR");
+        irbtton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                irbttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(irbtton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,18 +200,46 @@ public class Ventana2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void c_checkboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_checkboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_c_checkboxActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cplus_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cplus_checkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cplus_checkActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void python_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_python_checkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_python_checkActionPerformed
 
+    private void java_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_java_checkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_java_checkActionPerformed
+
+    private void irbttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irbttonActionPerformed
+ ventana3 b = new ventana3();
+ b.setVisible(true);
+ this.setVisible(false);
+    }//GEN-LAST:event_irbttonActionPerformed
+
+    private String obtenerSeleccionLenguaje() {
+    String seleccion = "c"; // Lenguaje por defecto
+    if(c_checkbox.isSelected()) {
+        seleccion = "c";
+    } else if(cplus_check.isSelected()) {
+        seleccion = "c++";
+    } else if(java_check.isSelected()) {
+        seleccion = "java";
+    } else if(python_check.isSelected()) {
+        seleccion = "python";
+    } else if(cnumeral_check.isSelected()) {
+        seleccion = "csharp";
+    }
+    return seleccion;
+}
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -229,10 +276,10 @@ public class Ventana2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox c_checkbox;
+    private javax.swing.JCheckBox cnumeral_check;
+    private javax.swing.JCheckBox cplus_check;
+    private javax.swing.JButton irbtton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -245,5 +292,7 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JCheckBox java_check;
+    private javax.swing.JCheckBox python_check;
     // End of variables declaration//GEN-END:variables
 }
