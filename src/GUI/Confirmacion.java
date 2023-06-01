@@ -38,8 +38,6 @@ public class Confirmacion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -124,21 +122,13 @@ public class Confirmacion extends javax.swing.JFrame {
         jLabel4.setText("When  you start  the test ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabel5.setText("You´ ll need to provide ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabel11.setText("Some information  , also ");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
-
         jLabel12.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         jLabel12.setText("You ´ ll have  45 minutes to ");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         jLabel13.setText("Finish.");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 0, 255));
         jButton1.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
@@ -211,13 +201,11 @@ public class Confirmacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

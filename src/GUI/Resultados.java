@@ -280,6 +280,7 @@ public class Resultados extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
+// Listado de pregutnas que fueron mostradas en el exámen
 class VentanaPreguntas extends JDialog {
 
     private ArrayList<Question> preguntas = new ArrayList<>();
@@ -307,5 +308,4 @@ class VentanaPreguntas extends JDialog {
         setLocationRelativeTo(null);
     }
 
-    // Resto de los métodos
 }
