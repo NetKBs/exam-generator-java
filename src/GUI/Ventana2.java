@@ -217,29 +217,27 @@ public class Ventana2 extends javax.swing.JFrame {
     }//GEN-LAST:event_java_checkActionPerformed
 
     private void irbttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irbttonActionPerformed
- ventana3 b = new ventana3();
- b.setVisible(true);
- this.setVisible(false);
+        ventana3 b = new ventana3();
+        b.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_irbttonActionPerformed
 
     private String obtenerSeleccionLenguaje() {
-    String seleccion = "c"; // Lenguaje por defecto
-    if(c_checkbox.isSelected()) {
-        seleccion = "c";
-    } else if(cplus_check.isSelected()) {
-        seleccion = "c++";
-    } else if(java_check.isSelected()) {
-        seleccion = "java";
-    } else if(python_check.isSelected()) {
-        seleccion = "python";
-    } else if(cnumeral_check.isSelected()) {
-        seleccion = "csharp";
+        String seleccion = "c"; // Lenguaje por defecto
+        if (c_checkbox.isSelected()) {
+            seleccion = "c";
+        } else if (cplus_check.isSelected()) {
+            seleccion = "c++";
+        } else if (java_check.isSelected()) {
+            seleccion = "java";
+        } else if (python_check.isSelected()) {
+            seleccion = "python";
+        } else if (cnumeral_check.isSelected()) {
+            seleccion = "csharp";
+        }
+        return seleccion;
     }
-    return seleccion;
-}
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */

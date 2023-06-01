@@ -40,6 +40,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class PreguntasGUI extends JFrame implements ActionListener {
+
     String seleccion = "java";
     int radioSeleccionados = 0; // Variable contadora
     private JPanel panelPrincipal;
@@ -53,21 +54,21 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         File archivoTemporal = new File("seleccion.txt");
-try {
-    Scanner scanner = new Scanner(archivoTemporal);
-    if(scanner.hasNext()) {
-        seleccion = scanner.next();
-    }
-    scanner.close();
-} catch (FileNotFoundException e) {
-    // Manejar una posible excepción
-    e.printStackTrace();
-}
- 
-      ExamModel exam = new ExamModel(seleccion);
+        try {
+            Scanner scanner = new Scanner(archivoTemporal);
+            if (scanner.hasNext()) {
+                seleccion = scanner.next();
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            // Manejar una posible excepción
+            e.printStackTrace();
+        }
+
+        ExamModel exam = new ExamModel(seleccion);
         this.preguntas = exam.getQuestions();
         this.preguntaActual = 0;
-       
+
         crearComponentes();
         setSize(650, 300);
         setLocationRelativeTo(null);
@@ -336,8 +337,8 @@ try {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Borrar el archivo de selección temporal
-         File archivoTemporal = new File("seleccion.txt");
-         archivoTemporal.delete();
+            File archivoTemporal = new File("seleccion.txt");
+            archivoTemporal.delete();
 
             PreguntasGUI preguntasGUI = new PreguntasGUI();
         });
