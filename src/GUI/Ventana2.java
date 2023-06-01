@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
 /**
  *
  * @author Manue
@@ -15,6 +17,7 @@ public class Ventana2 extends javax.swing.JFrame {
      */
     public Ventana2() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -218,11 +221,9 @@ public class Ventana2 extends javax.swing.JFrame {
 
     private void irbttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irbttonActionPerformed
  ventana3 b = new ventana3();
- b.setVisible(true);
- this.setVisible(false);
-    }//GEN-LAST:event_irbttonActionPerformed
+    b.setVisible(true);
 
-    private String obtenerSeleccionLenguaje() {
+    // Obtener la selección
     String seleccion = "c"; // Lenguaje por defecto
     if(c_checkbox.isSelected()) {
         seleccion = "c";
@@ -235,8 +236,22 @@ public class Ventana2 extends javax.swing.JFrame {
     } else if(cnumeral_check.isSelected()) {
         seleccion = "csharp";
     }
-    return seleccion;
-}
+
+    // Guardar la selección en un archivo temporal
+    File archivoTemporal = new File("seleccion.txt");
+    try {
+        PrintWriter escritor = new PrintWriter(archivoTemporal);
+        escritor.print(seleccion);
+        escritor.close();
+    } catch (FileNotFoundException e) {
+        // Manejar una posible excepción
+        e.printStackTrace();
+    }
+
+    this.setVisible(false);
+    }//GEN-LAST:event_irbttonActionPerformed
+
+   
     
     
     
