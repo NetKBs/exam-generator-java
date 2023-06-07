@@ -9,16 +9,16 @@ La palabra clave "final" se utiliza en Java para definir una constante. | V | F 
 Un try-catch debe manejar todas las excepciones esperadas en un programa Java. | F | V | VF
 Todos los objetos en Java heredan de la clase Object. | V | F | VF
 
-¿Cuál es la forma correcta de declarar un arreglo en Java? | int[] numeros | numeros[] int ~ int numeros | S1 
-¿La palabra clave static puede ser usada para declarar métodos en Java? | Sí | No ~ solo para atributos ~ static no es una palabra clave válida | S1 
-¿Cuál es el método utilizado para encadenar dos cadenas de texto en Java? | concat() | attach() ~ join() | S1 
-¿En qué parte del ciclo de vida de un objeto en Java ocurre la inicialización? | Constructor | Método finalize() ~ Método run() | S1 
-¿Cuál es el resultado de la siguiente operación en Java? true | false | true | false ~ null | S1 
-En Java ~ ¿qué son las excepciones? | Errores que ocurren en tiempo de ejecución y que pueden ser manejados con bloque try-catch | Un tipo de dato primitivo ~ Librerías para manejar bases de datos | S1 
-¿Qué es un interface en Java? | Una entidad que define un conjunto de métodos que una clase debe implementar | Un objeto visual en la pantalla ~ Una variable estática | S1 
-¿Cuál es el propósito del operador ternario ? : en Java? | Realizar una operación condicional en una sola línea de código | Convertir el tipo de dato de una variable ~ Definir una nueva variable | S1 
-¿Es posible modificar el valor de un atributo final de una clase en tiempo de ejecución? | No | Sí ~ mediante el uso de reflexión ~ Solo si se utiliza la palabra clave mutable | S1 
-¿Cuál es el objeto utilizado para representar fechas en Java? | java.util.Date | java.time.Calendar ~ java.util.String | S1
+¿Cuál es la forma correcta de declarar un arreglo en Java? | int[] numeros | numeros[] int ~ int numeros |S1 
+¿La palabra clave static puede ser usada para declarar métodos en Java? | Sí | No ~ solo para atributos ~ static no es una palabra clave válida |S1 
+¿Cuál es el método utilizado para encadenar dos cadenas de texto en Java? | concat() | attach() ~ join() |S1 
+¿En qué parte del ciclo de vida de un objeto en Java ocurre la inicialización? | Constructor | Método finalize() ~ Método run() |S1 
+¿Cuál es el resultado de la siguiente operación en Java? true || false | true | false ~ null |S1 
+En Java ~ ¿qué son las excepciones? | Errores que ocurren en tiempo de ejecución y que pueden ser manejados con bloque try-catch | Un tipo de dato primitivo ~ Librerías para manejar bases de datos |S1 
+¿Qué es un interface en Java? | Una entidad que define un conjunto de métodos que una clase debe implementar | Un objeto visual en la pantalla ~ Una variable estática |S1 
+¿Cuál es el propósito del operador ternario ? : en Java? | Realizar una operación condicional en una sola línea de código | Convertir el tipo de dato de una variable ~ Definir una nueva variable |S1 
+¿Es posible modificar el valor de un atributo final de una clase en tiempo de ejecución? | No | Sí ~ mediante el uso de reflexión ~ Solo si se utiliza la palabra clave mutable |S1 
+¿Cuál es el objeto utilizado para representar fechas en Java? | java.util.Date | java.time.Calendar ~ java.util.String |S1
 
 ¿Qué palabra clave se utiliza para definir una constante en Java?|final ~ static|static final ~ const ~ readonly|S2
 ¿Cuál de las siguientes opciones NO es un tipo de variable en Java?|constante ~ primitivo| booleano ~ objeto ~ flotante|S2
@@ -29,26 +29,26 @@ En Java ~ ¿qué son las excepciones? | Errores que ocurren en tiempo de ejecuci
 ¿Cuál de las siguientes opciones es el nombre de una clase en Java?|String ~ Math| Monitor~ Vehicle~ Processor|S2
 ¿Qué método se utiliza en Java para obtener la longitud de una cadena?| length()~ size()| count() ~ amount()~ quantity()|S2
 ¿Qué clase en Java se utiliza para leer la entrada del usuario desde la consola?| Scanner ~ BufferedReader| InputReader ~ ConsoleReader ~  StreamInputReader|S2
-¿Qué ciclo de Java se utiliza cuando no sabemos cuántas veces se ejecutará el ciclo?|while ~ do-while|for ~ foreach
+¿Qué ciclo de Java se utiliza cuando no sabemos cuántas veces se ejecutará el ciclo?|while ~ do-while|for ~ foreach|S2
 
-¿Cuál(es) de los siguientes enfoques se pueden utilizar para realizar entrada y salida de datos en Java? | `con la clase Scanner`~ `con la clase BufferedReader`~ `con la clase PrintWriter` | `con la clase Formatter`~ `con la clase System`~ `con la clase ObjectInput` | S3
-¿Cuál(es) de las siguientes afirmaciones son ciertas acerca de los arreglos en Java? | `Un arreglo puede tener elementos de diferentes tipos`~ `Los elementos de un arreglo se almacenan en orden secuencial`~ `El tamaño de un arreglo se especifica en tiempo de compilación` | `Un arreglo es una lista enlazada`~ `El tamaño de un arreglo no puede cambiar después de su creación` | S3
-¿Cuál(es) de los siguientes elementos se pueden serializar en Java? | `Objetos`~ `Arreglos`~ `Atributos de clase` | `Interfaces`~ `Constructores`~ `Métodos` | S3
-¿Cuál(es) de las siguientes afirmaciones son verdaderas acerca de las excepciones en Java? | `Una excepción puede ser lanzada por el programador`~ `Los bloques try-catch se pueden anidar`~ `Una excepción puede ser capturada y manejada en el mismo método donde se lanzó` | `Las excepciones solo pueden ser lanzadas por el propio lenguaje Java`~ `Los bloques try-catch no pueden estar en diferentes métodos`~ `No se pueden lanzar excepciones personalizadas` | S3
-¿Cuál(es) de los siguientes tipos de clases pueden heredar de otras clases en Java? | `Clases concretas`~ `Clases abstractas`~ `Interfaces` | `Clases selladas`~ `Clases anónimas`~ `Clases estáticas` | S3
-¿Cuál(es) de las siguientes afirmaciones son ciertas acerca de los métodos en Java? | `Un método puede tener varios parámetros de entrada`~ `Un método puede devolver cualquier tipo de dato~ incluso otro método`~ `Un método puede ser sobrescrito por una subclase que herede de la clase donde se define` | `Un método puede tener una cantidad ilimitada de parámetros de entrada`~ `Un método solo puede devolver valores primitivos`~ `Un método no puede ser sobrescrito por una subclase` | S3
-¿Cuál(es) de los siguientes tipos de estructuras de datos se pueden utilizar en Java? | `Listas`~ `Colas`~ `Pilas` | `Árboles`~ `Grafos`~ `Matrices` | S3
-¿Cuál(es) de los siguientes patrones de diseño se pueden aplicar en Java? | `Patrón de Singleton`~ `Patrón de Fábrica Abstracta`~ `Patrón de Observador` | `Patrón de Cadena de Responsabilidades`~ `Patrón de Comportamiento`~ `Patrón de Configuración` | S3
-¿Cuál(es) de los siguientes conceptos son fundamentales en la programación orientada a objetos en Java? | `Encapsulamiento`~ `Herencia`~ `Polimorfismo` | `Multitarea`~ `Instrucciones de control`~ `Punteros` | S3
+¿Cuál(es) de los siguientes enfoques se pueden utilizar para realizar entrada y salida de datos en Java? | `con la clase Scanner`~ `con la clase BufferedReader`~ `con la clase PrintWriter` | `con la clase Formatter`~ `con la clase System`~ `con la clase ObjectInput` |S3
+¿Cuál(es) de las siguientes afirmaciones son ciertas acerca de los arreglos en Java? | `Un arreglo puede tener elementos de diferentes tipos`~ `Los elementos de un arreglo se almacenan en orden secuencial`~ `El tamaño de un arreglo se especifica en tiempo de compilación` | `Un arreglo es una lista enlazada`~ `El tamaño de un arreglo no puede cambiar después de su creación` |S3
+¿Cuál(es) de los siguientes elementos se pueden serializar en Java? | `Objetos`~ `Arreglos`~ `Atributos de clase` | `Interfaces`~ `Constructores`~ `Métodos`|S3
+¿Cuál(es) de las siguientes afirmaciones son verdaderas acerca de las excepciones en Java? | `Una excepción puede ser lanzada por el programador`~ `Los bloques try-catch se pueden anidar`~ `Una excepción puede ser capturada y manejada en el mismo método donde se lanzó` | `Las excepciones solo pueden ser lanzadas por el propio lenguaje Java`~ `Los bloques try-catch no pueden estar en diferentes métodos`~ `No se pueden lanzar excepciones personalizadas` |S3
+¿Cuál(es) de los siguientes tipos de clases pueden heredar de otras clases en Java? | `Clases concretas`~ `Clases abstractas`~ `Interfaces` | `Clases selladas`~ `Clases anónimas`~ `Clases estáticas` |S3
+¿Cuál(es) de las siguientes afirmaciones son ciertas acerca de los métodos en Java? | `Un método puede tener varios parámetros de entrada`~ `Un método puede devolver cualquier tipo de dato~ incluso otro método`~ `Un método puede ser sobrescrito por una subclase que herede de la clase donde se define` | `Un método puede tener una cantidad ilimitada de parámetros de entrada`~ `Un método solo puede devolver valores primitivos`~ `Un método no puede ser sobrescrito por una subclase` |S3
+¿Cuál(es) de los siguientes tipos de estructuras de datos se pueden utilizar en Java? | `Listas`~ `Colas`~ `Pilas` | `Árboles`~ `Grafos`~ `Matrices` |S3
+¿Cuál(es) de los siguientes patrones de diseño se pueden aplicar en Java? | `Patrón de Singleton`~ `Patrón de Fábrica Abstracta`~ `Patrón de Observador` | `Patrón de Cadena de Responsabilidades`~ `Patrón de Comportamiento`~ `Patrón de Configuración` |S3
+¿Cuál(es) de los siguientes conceptos son fundamentales en la programación orientada a objetos en Java? | `Encapsulamiento`~ `Herencia`~ `Polimorfismo` | `Multitarea`~ `Instrucciones de control`~ `Punteros` |S3
 ¿Cuál(es) de los siguientes métodos se pueden usar para comparar objetos en Java? | `equals()`~ `hashCode()`~ `compareTo()` | `add()`~ `remove()`~ `indexOf()` | S3
     
 ¿Cómo se declara una variable de tipo entero en Java? | int nombreVariable; | null | CD
-¿Cómo se crea un objeto de tipo Scanner llamado "lector" para leer entrada del usuario en Java? | Scanner lector = new Scanner(System.in); | null | CD
+¿Cómo se crea un objeto de tipo Scanner llamado "lector" para leer entrada del usuario en Java? | Scanner lector = new Scanner(System.in); | null |CD
 ¿Cómo se inicializa un arreglo de enteros llamado "numeros" con longitud 5 en Java? | int[] numeros = new int[5]; | null | CD
-¿Cómo se recorre una lista llamada "lista" utilizando un bucle for-each en Java? | for (tipoElemento variable : lista){ //código a ejecutar } | null | CD
-¿Cómo se define una clase llamada "Persona" con un atributo "nombre" de tipo String en Java? | public class Persona { private String nombre; } | null | CD
-¿Cómo se llama al método que se ejecuta automáticamente cuando se crea un objeto en Java? | Constructor | null | CD
-¿Cómo se define una interfaz en Java con un método llamado "saludar" que no recibe argumentos ni devuelve nada? | public interface Saludador { void saludar(); } | null | CD
-¿Cómo se utiliza la clase Math en Java para obtener el valor absoluto de un número llamado "numero"? | Math.abs(numero); | null | CD
+¿Cómo se recorre una lista llamada "lista" utilizando un bucle for-each en Java? | for (tipoElemento variable : lista){ //código a ejecutar } | null |CD
+¿Cómo se define una clase llamada "Persona" con un atributo "nombre" de tipo String en Java? | public class Persona { private String nombre; } | null |CD
+¿Cómo se llama al método que se ejecuta automáticamente cuando se crea un objeto en Java? | Constructor | null |CD
+¿Cómo se define una interfaz en Java con un método llamado "saludar" que no recibe argumentos ni devuelve nada? | public interface Saludador { void saludar(); } | null |CD
+¿Cómo se utiliza la clase Math en Java para obtener el valor absoluto de un número llamado "numero"? | Math.abs(numero); | null |CD
 ¿Cómo se crea un objeto de tipo LocalDate con la fecha actual en Java? | LocalDate fechaActual = LocalDate.now(); | null | CD
-¿Cómo se declara un método llamado "suma" que recibe dos números enteros y devuelve la suma de ambos en Java? | public int suma(int num1~ int num2){ return num1 + num2; } | null | CD   
+¿Cómo se declara un método llamado "suma" que recibe dos números enteros y devuelve la suma de ambos en Java? | public int suma(int num1~ int num2){ return num1 + num2; } | null |CD   
