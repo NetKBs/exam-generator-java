@@ -35,9 +35,13 @@ import java.util.TimerTask;
 
 import exam.ExamModel;
 import exam.Question;
-import GUI.Resultados;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.SwingConstants;
 
 public class PreguntasGUI extends JFrame implements ActionListener {
 
@@ -51,9 +55,12 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public PreguntasGUI() {
         super("Preguntas");
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        File archivoTemporal = new File("seleccion.txt");
+
+        String slice = File.separator;
+        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "seleccion.txt";
+        File archivoTemporal = new File(file_path);
+
         try {
             Scanner scanner = new Scanner(archivoTemporal);
             if (scanner.hasNext()) {
@@ -138,7 +145,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
             // Preguntas que usan RadioButtons
             if (tipos_seleccion.contains(pregunta.getType())) {
-                
+
                 //respuesta = "<html><p style='white-space: pre-wrap'>" + respuesta + "</p></html>";
                 JRadioButton radio = new JRadioButton(respuesta);
 
@@ -209,16 +216,27 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
                 panelRespuestas.add(radio);
 
-            } else { // TextArea
+            } else { // Preguntas si se usan TextAreas
+
                 JPanel subPanel = new JPanel(new GridBagLayout());
+                
+                JTextArea hint = new JTextArea("Write:  ");
+                hint.setOpaque(false); // fondo transparante
+                hint.setFont(new Font("Arial", Font.BOLD, 14)); // Font
+                hint.setLineWrap(true); // Establece la posibilidad de envoltura de contenido automáticamente
+                hint.setEditable(false); // Desactiva la posibilidad de editar el texto
+
                 // crea el JTextArea con el tamaño deseado
                 JTextArea text_field = new JTextArea();
                 text_field.setPreferredSize(new Dimension(300, 100));
-
-                // agrega el JTextArea al subpanel
+                
+                // agregar al subpanel
+                subPanel.add(hint);                
                 subPanel.add(text_field, new GridBagConstraints());
+                
                 // agrega el subpanel al contenedor principal, centrado
                 panelRespuestas.add(subPanel, new GridBagConstraints());
+
             }
         }
 
@@ -315,7 +333,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     }
 
     public void saveGrades() {
-        
+
         String slice = File.separator;
         String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "notas.txt";
         File archivo = new File(file_path);
@@ -338,10 +356,6 @@ public class PreguntasGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            // Borrar el archivo de selección temporal
-            File archivoTemporal = new File("seleccion.txt");
-            archivoTemporal.delete();
-
             PreguntasGUI preguntasGUI = new PreguntasGUI();
         });
     }

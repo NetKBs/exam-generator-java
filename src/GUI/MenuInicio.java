@@ -7,6 +7,8 @@ package GUI;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import javax.swing.JOptionPane;
+
 
 public class MenuInicio extends javax.swing.JFrame {
 
@@ -146,22 +148,29 @@ public class MenuInicio extends javax.swing.JFrame {
         String name = txtnombre.getText();
         String lastname = txtapellido.getText();
 
-        String slice = File.separator;
-        String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos_usr.txt";
+        // Check that name or lastname aren't empty
+        if (!name.trim().equals("") && !lastname.trim().equals("")) {
+            String slice = File.separator;
+            String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "datos_usr.txt";
+
+            try {
+                FileWriter writer = new FileWriter(file_path, true);
+                writer.write(name + " , " + lastname + "\n");
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Ocurrió un error al guardar el archivo.");
+                e.printStackTrace();
+            }
+
+            a.setVisible(true);
+            this.setVisible(false);
         
-
-        try {
-            FileWriter writer = new FileWriter(file_path, true);
-            writer.write(name + " , " + lastname + "\n");
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("Ocurrió un error al guardar el archivo.");
-            e.printStackTrace();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please, fill the inputs", "Empty Fields", JOptionPane.INFORMATION_MESSAGE);
         }
-
-        a.setVisible(true);
-        this.setVisible(false);
-
+   
+        
+        
     }//GEN-LAST:event_btnenviarActionPerformed
 
     private void txtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoActionPerformed

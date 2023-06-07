@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Manue
@@ -131,16 +134,17 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("Please choose a ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 230, 70));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 230, 70));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel4.setText("the subject of the exam");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel3.setText("programming language as ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
 
+        c_checkbox.setBackground(new java.awt.Color(255, 255, 255));
         c_checkbox.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         c_checkbox.setText("C");
         c_checkbox.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +154,7 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
         });
         jPanel1.add(c_checkbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
+        cplus_check.setBackground(new java.awt.Color(255, 255, 255));
         cplus_check.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         cplus_check.setText("C++");
         cplus_check.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +164,7 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
         });
         jPanel1.add(cplus_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
 
+        java_check.setBackground(new java.awt.Color(255, 255, 255));
         java_check.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         java_check.setText("Java");
         java_check.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +174,7 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
         });
         jPanel1.add(java_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
+        python_check.setBackground(new java.awt.Color(255, 255, 255));
         python_check.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         python_check.setText("Python");
         python_check.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +184,7 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
         });
         jPanel1.add(python_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
 
+        cnumeral_check.setBackground(new java.awt.Color(255, 255, 255));
         cnumeral_check.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         cnumeral_check.setText("C#");
         jPanel1.add(cnumeral_check, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
@@ -220,41 +228,53 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
     }//GEN-LAST:event_java_checkActionPerformed
 
     private void irbttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irbttonActionPerformed
- Confirmacion b = new Confirmacion();
-    b.setVisible(true);
+        Confirmacion confirmation_w = new Confirmacion();
 
-    // Obtener la selección
-    String seleccion = "c"; // Lenguaje por defecto
-    if(c_checkbox.isSelected()) {
-        seleccion = "c";
-    } else if(cplus_check.isSelected()) {
-        seleccion = "c++";
-    } else if(java_check.isSelected()) {
-        seleccion = "java";
-    } else if(python_check.isSelected()) {
-        seleccion = "python";
-    } else if(cnumeral_check.isSelected()) {
-        seleccion = "csharp";
-    }
+        // Obtener la selección
+        String seleccion = "";
 
-    // Guardar la selección en un archivo temporal
-    File archivoTemporal = new File("seleccion.txt");
-    try {
-        PrintWriter escritor = new PrintWriter(archivoTemporal);
-        escritor.print(seleccion);
-        escritor.close();
-    } catch (FileNotFoundException e) {
-        // Manejar una posible excepción
-        e.printStackTrace();
-    }
+        if (c_checkbox.isSelected()) {
+            seleccion = c_checkbox.getText().toLowerCase();
 
-    this.setVisible(false);
+        } else if (cplus_check.isSelected()) {
+            seleccion = cplus_check.getText().toLowerCase();
+
+        } else if (java_check.isSelected()) {
+            seleccion = java_check.getText().toLowerCase();
+
+        } else if (python_check.isSelected()) {
+            seleccion = python_check.getText().toLowerCase();
+
+        } else if (cnumeral_check.isSelected()) {
+            seleccion = cnumeral_check.getText().toLowerCase();
+        }
+
+        // Verify that a languajes its selected
+        if (!seleccion.trim().equals("")) {
+            String slice = File.separator;
+            String file_path = System.getProperty("user.dir") + slice + "src" + slice + "GUI" + slice + "temps" + slice + "seleccion.txt";
+            
+            // Guardar la selección en un archivo temporal
+            File archivoTemporal = new File(file_path);
+            try {
+                PrintWriter escritor = new PrintWriter(archivoTemporal);
+                escritor.print(seleccion);
+                escritor.close();
+            } catch (FileNotFoundException e) {
+                // Manejar una posible excepción
+                e.printStackTrace();
+            }
+
+            this.setVisible(false);
+            confirmation_w.setVisible(true);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Please, select a language", "Empty choice", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_irbttonActionPerformed
 
-   
-    
-    
-    
     /**
      * @param args the command line arguments
      */
