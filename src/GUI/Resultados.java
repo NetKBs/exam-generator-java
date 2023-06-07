@@ -126,6 +126,7 @@ public class Resultados extends javax.swing.JFrame {
         LabelName = new javax.swing.JTextField();
         LabelCorrects = new javax.swing.JTextField();
         ButtonListed = new javax.swing.JButton();
+        ButtonHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -165,7 +166,7 @@ public class Resultados extends javax.swing.JFrame {
         LabelName.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         LabelName.setForeground(new java.awt.Color(0, 0, 0));
         LabelName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        LabelName.setText("Avian Ramitos de flores");
+        LabelName.setText("Unknown");
         LabelName.setBorder(null);
         LabelName.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         LabelName.addActionListener(new java.awt.event.ActionListener() {
@@ -204,6 +205,18 @@ public class Resultados extends javax.swing.JFrame {
         jPanel1.add(ButtonListed);
         ButtonListed.setBounds(80, 250, 220, 60);
 
+        ButtonHome.setBackground(new java.awt.Color(153, 0, 255));
+        ButtonHome.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        ButtonHome.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonHome.setText("Home");
+        ButtonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonHomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ButtonHome);
+        ButtonHome.setBounds(120, 320, 130, 50);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,6 +247,13 @@ public class Resultados extends javax.swing.JFrame {
         VentanaPreguntas ventanaPreguntas = new VentanaPreguntas(preguntas);
         ventanaPreguntas.setVisible(true);
     }//GEN-LAST:event_ButtonListedActionPerformed
+
+    private void ButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonHomeActionPerformed
+        // TODO add your handling code here:
+        MenuInicio menu = new MenuInicio();
+        dispose();
+        menu.setVisible(true);
+    }//GEN-LAST:event_ButtonHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,6 +291,7 @@ public class Resultados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonHome;
     private javax.swing.JButton ButtonListed;
     private javax.swing.JTextField LabelCorrects;
     private javax.swing.JTextField LabelIncorrects;
