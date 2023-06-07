@@ -15,8 +15,8 @@ import java.awt.GridBagLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
@@ -37,11 +37,8 @@ import exam.ExamModel;
 import exam.Question;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+
 
 public class PreguntasGUI extends JFrame implements ActionListener {
 
@@ -111,6 +108,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
             Question pregunta = preguntas.get(i); // elemento pregunta actual
             JPanel panelPregunta = crearPanelPregunta(pregunta, i);
             panelPrincipal.add(panelPregunta, Integer.toString(i));
+            
         }
 
         add(panelPrincipal);
@@ -248,6 +246,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
         btnContinuar.setForeground(Color.WHITE); // Foreground color
         btnContinuar.setActionCommand(Integer.toString(index));
         btnContinuar.addActionListener(this);
+        
         panelPregunta.add(btnContinuar, BorderLayout.SOUTH);
 
         return panelPregunta;

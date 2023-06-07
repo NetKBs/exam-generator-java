@@ -38,6 +38,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         txtapellido = new javax.swing.JTextField();
         btnenviar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -97,8 +98,8 @@ public class MenuInicio extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 300, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLabel1.setText("Name:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        jLabel1.setText("Before we start, please");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 260, -1));
 
         txtnombre.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,6 +127,10 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnenviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel3.setText("Name:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,6 +198,7 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JButton btnenviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
