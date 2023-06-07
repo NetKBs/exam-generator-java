@@ -19,6 +19,7 @@ public class SeleccionLenguaje extends javax.swing.JFrame {
      * Creates new form Ventana2
      */
     public SeleccionLenguaje() {
+        super("Q&A GENERATOR");
         initComponents();
         setLocationRelativeTo(null);
     }

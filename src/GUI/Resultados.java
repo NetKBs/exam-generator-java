@@ -14,7 +14,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JList;
@@ -39,6 +38,7 @@ public class Resultados extends javax.swing.JFrame {
      * @param
      */
     public Resultados() {
+        super("Q&A GENERATOR");
         setLocationRelativeTo(null);
         initComponents();
         loadGrades();

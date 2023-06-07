@@ -1,8 +1,8 @@
 ¿C# es un lenguaje de programación orientado a objetos? | V | F|VF
-¿C# es un lenguaje compilado? | V | F
-¿C# es un lenguaje interpretado? | F | V
+¿C# es un lenguaje compilado? | V | F  | VF
+¿C# es un lenguaje interpretado? | F | V | VF
 ¿C# se utiliza principalmente para desarrollar aplicaciones de escritorio? | V | F|VF
-¿C# es un lenguaje de programación creado por Microsoft? | V | F
+¿C# es un lenguaje de programación creado por Microsoft? | V | F | VF
 ¿C# se utiliza comúnmente en el desarrollo de aplicaciones web? | V | F|VF
 ¿C# permite la programación asincrónica? | V | F|VF
 ¿C# no permite la sobrecarga de métodos? | F | V|VF

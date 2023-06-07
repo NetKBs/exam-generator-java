@@ -51,7 +51,7 @@ public class PreguntasGUI extends JFrame implements ActionListener {
     private ArrayList<Integer> notas = new ArrayList<>();
 
     public PreguntasGUI() {
-        super("Preguntas");
+        super("Q&A GENERATOR");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         String slice = File.separator;

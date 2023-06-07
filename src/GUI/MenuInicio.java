@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class MenuInicio extends javax.swing.JFrame {
 
     public MenuInicio() {
+        super("Q&A GENERATOR");
         initComponents();
         this.setLocationRelativeTo(null);
     }
